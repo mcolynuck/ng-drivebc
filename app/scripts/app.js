@@ -10,10 +10,11 @@
  */
 angular
   .module('drivebcApp', [
-    'ngAnimate',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize'
+    // 'ngAnimate',
+    // 'ngResource',
+    'ngRoute'
+    // ,
+    // 'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -50,4 +51,18 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+
+  .directive('mapCanvas', function() {
+    return {
+        restrict: 'EA',
+        link: function(scope, element) {
+          console.log("linking div");
+            var mapOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(-34.397, 150.644)    // Change this to BC with correct zoom factor
+            };
+            new google.maps.Map(element[0], mapOptions);
+        }
+    };
+});
