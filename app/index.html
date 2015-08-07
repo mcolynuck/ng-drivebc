@@ -31,66 +31,26 @@
 
     <div ng-controller="RootCtrl">
 
-<div style="width:100%">
-  <div>
-    <div class="pane-left">
-      <div class="nav-button-stacked">
-        <a class="nav-button-box active" ng-href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true">Home</span></a>
-        <a class="nav-button-box" ng-href="#/map"><span class="glyphicon glyphicon-globe" aria-hidden="true">Map</span></a>
-        <a class="nav-button-box" ng-href="#/list"><span class="glyphicon glyphicon-th-list" aria-hidden="true">List</span></a>
-        <a class="nav-button-box" ng-href="#/webcams"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true">Webcams</span></a>
-        <a class="nav-button-box" ng-href="#/links"><span class="glyphicon glyphicon-info-sign" aria-hidden="true">Links</span></a>
-        <a class="nav-button-box" ng-href="#/help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true">Help</span></a>
-      </div>
+      <div style="width:100%">
+        <div>
+          <div class="pane-left">
+            <div class="nav-div-stacked">
+              <a ng-href="#/home" title="Home"><div><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div></a>
+              <a ng-href="#/map" title="Map"><div><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div></a>
+              <a ng-href="#/list" title="List"><div><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></div></a>
+              <a ng-href="#/webcams" title="Webcam"><div><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></div></a>
+              <a ng-href="#/links" title="Links"><div><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></div></a>
+              <a ng-href="#/help" title="Help"><div><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></div></a>
+            </div>
+          </div>
 
-<!-- todo:
-  Make div clickable
-  center text/icon in div vertically
---?      
-
- <!--
-      <ul class="nav-button-stacked">
-        <li class="nav-button active"><a ng-href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-        <li class="nav-button"><a ng-href="#/map"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Map</a></li>
-        <li class="nav-button"><a ng-href="#/list"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>List</a></li>
-        <li class="nav-button"><a ng-href="#/webcams"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>Webcams</a></li>
-        <li class="nav-button"><a ng-href="#/links"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>Links</a></li>
-        <li class="nav-button"><a ng-href="#/help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>Help</a></li>     
-      </ul>
--->      
-    </div>
-
-    <div class="pane-right" style="background-color:yellow;">
-      
-    </div>    
-  </div>
-</div>
-<!--
-<div style="display:inline-block; height:100%; background-color: blue; vertical-align:top;">
-      <nav style="width: 150px; float:left; background-color: yellow;" class="line-right">
-        <div class="">
-          <ul class="nav nav-pills nav-stacked btn-lg">
-            <li class="active"><a ng-href="#/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Home</a></li>
-            <li class=""><a ng-href="#/map"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Map</a></li>
-            <li class=""><a ng-href="#/list"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>List</a></li>
-            <li class=""><a ng-href="#/webcams"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>Webcams</a></li>
-            <li class=""><a ng-href="#/links"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>Links</a></li>
-            <li class=""><a ng-href="#/help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>Help</a></li>     
-          </ul>
-        </div>
-
-      </nav>
-</div>
-
-      <main class="max-content" style="background-color:lightblue; display:inline-block; vertical-align:top;">
-        <div class="" ng-view></div>
-        <!-- <div class="max-content" ng-view></div> -->
-<!--      </main>
--->
-
-      <div class="footer" ng-show="!isMapPage()">
-        <div class="container">
-          <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+          <div class="pane-right" style="background-color:yellow;">
+            <main class="max-content" style="background-color:lightblue; display:inline-block; vertical-align:top;">
+              
+              <div class="max-content" ng-view></div>
+            
+            </main>
+          </div>            
         </div>
       </div>
 
@@ -111,6 +71,7 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -132,5 +93,12 @@
         <script src="scripts/controllers/links.js"></script>
         <script src="scripts/controllers/help.js"></script>
         <!-- endbuild -->
+
+   <script type="text/javascript">
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+      });
+    </script>
+
 </body>
 </html>

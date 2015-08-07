@@ -358,6 +358,8 @@ input[type="submit"] {
 
 body, html {
   height: 100%; }
+  body .header, html .header {
+    height: 50px; }
   body .line-under, html .line-under {
     border-bottom: 1px solid lightgrey;
     margin: 5px; }
@@ -365,14 +367,12 @@ body, html {
     border-right: 1px solid lightgrey;
     margin: 0 5px; }
   body .max-content, html .max-content {
-    height: calc(100% - 100px);
-    height: -moz-calc(100% - 100px);
-    height: -webkit-calc(100% - 100px);
-    height: -o-calc(100% - 100px); }
-    body .max-content .map-container, html .max-content .map-container {
+    height: 100%;
+    width: 100%; }
+  body .map-container, html .map-container {
+    height: 100%; }
+    body .map-container #map, html .map-container #map {
       height: 100%; }
-      body .max-content .map-container #map, html .max-content .map-container #map {
-        height: 100%; }
   body .pane-left, html .pane-left {
     position: absolute;
     margin: 0px;
@@ -382,12 +382,13 @@ body, html {
     height: -webkit-calc(100% - 50px);
     height: calc(100% - 50px);
     z-index: 0;
-    width: 200px;
-    display: block; }
+    width: 125px;
+    display: block;
+    overflow-y: scroll; }
   body .pane-right, html .pane-right {
     position: absolute;
     margin: 0px;
-    left: 200px;
+    left: 125px;
     right: 0px;
     top: 50px;
     height: calc(100% - 50px);
@@ -395,38 +396,29 @@ body, html {
     height: -webkit-calc(100% - 50px);
     height: -o-calc(100% - 50px);
     z-index: 0;
-    display: block; }
-  body .nav-button-stacked, html .nav-button-stacked {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-direction: row;
-    -webkit-box-lines: multiple;
-    -moz-box-lines: multiple;
-    box-lines: multiple;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    display: block;
+    overflow-y: scroll; }
+  body .nav-div-stacked, html .nav-div-stacked {
     height: 100%;
-    border-bottom: 1px solid gray; }
-  body .nav-button-box, html .nav-button-box {
-    min-width: 200px;
-    min-height: 75px;
-    text-align: center; }
-    body .nav-button-box:hover, html .nav-button-box:hover {
-      background-color: lightblue; }
-    body .nav-button-box .active, html .nav-button-box .active {
-      background-color: lightgray; }
+    background-color: silver; }
+    body .nav-div-stacked > a div, html .nav-div-stacked > a div {
+      position: relative;
+      overflow: auto;
+      height: calc(100% / 6);
+      min-height: 40px;
+      max-height: 80px;
+      width: 100%;
+      color: brown; }
+      body .nav-div-stacked > a div:hover, html .nav-div-stacked > a div:hover {
+        background-color: lightgray;
+        color: black; }
+      body .nav-div-stacked > a div span, html .nav-div-stacked > a div span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        body .nav-div-stacked > a div span:before, html .nav-div-stacked > a div span:before {
+          padding-right: 5px;
+          font-size: 32px; }
 
 /*# sourceMappingURL=main.css.map */

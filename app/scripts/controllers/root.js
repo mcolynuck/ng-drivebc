@@ -9,6 +9,7 @@
  */
 angular.module('drivebcApp')
   .controller('RootCtrl', ['$scope', '$location', function ($scope, $location) {
+  	$scope.isMap = false;
   	$scope.isMapPage = function(){
   		// True if map page is active
 console.log("isMapPage");
