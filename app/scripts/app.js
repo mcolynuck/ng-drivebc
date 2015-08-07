@@ -12,7 +12,8 @@ angular
   .module('drivebcApp', [
     // 'ngAnimate',
     // 'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'map_directives'
     // ,
     // 'ngSanitize'
   ])
@@ -51,18 +52,20 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
+  // })
 
-  .directive('mapCanvas', function() {
-    return {
-        restrict: 'EA',
-        link: function(scope, element) {
-          console.log("linking div");
-            var mapOptions = {
-                zoom: 8,
-                center: new google.maps.LatLng(-34.397, 150.644)    // Change this to BC with correct zoom factor
-            };
-            new google.maps.Map(element[0], mapOptions);
-        }
-    };
-});
+  // .directive('mapCanvas', function() {
+  //   return {
+  //       restrict: 'A',
+  //       link: function(scope, element) {
+  //         var google = google || null;
+  //         if (google) {
+  //           var mapOptions = {
+  //               zoom: 5,
+  //               center: new google.maps.LatLng(54.8833,-122.6667)    // Change this to BC with correct zoom factor
+  //           };
+  //           new google.maps.Map(element[0], mapOptions);
+  //         }
+  //       }
+  //   };
+  });

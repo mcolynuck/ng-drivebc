@@ -31,8 +31,26 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+    // Compile sass files to css
+    sass: {
+      dist: {
+        files: {
+          // All the sass files boil down into the one main.sass file which we then convert to the one css file.
+          '<%= yeoman.app %>/styles/main.css' : '<%= yeoman.app %>/styles/main.sass'
+        }
+      }
+    },    
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      sass: {
+        files: [
+          // use '**/'' to watch sub-sub-directories as well
+          '<%= yeoman.app %>/styles/{,**/}*.scss',    // Use these first as they have some plugin vars that are used in the sass files
+          '<%= yeoman.app %>/styles/{,**/}*.sass'
+        ],
+        tasks: ['sass']
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -409,6 +427,8 @@ module.exports = function (grunt) {
   });
 
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -457,6 +477,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'sass',
     'newer:jshint',
     'test',
     'build'
