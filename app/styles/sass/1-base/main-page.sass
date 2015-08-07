@@ -1,0 +1,62 @@
+body,html
+	height: 100%
+
+	.line-under
+		border-bottom: 1px solid lightgrey
+		margin: 5px
+	.line-right
+		border-right: 1px solid lightgrey
+		margin: 0 5px
+
+	.max-content
+		height: calc(100% - 100px)
+		height: -moz-calc(100% - 100px)
+		height: -webkit-calc(100% - 100px)
+		height: -o-calc(100% - 100px)
+
+		.map-container
+			height: 100%
+			#map
+				height: 100%
+
+	.pane-left
+		position: absolute
+		margin: 0px
+		left: 0px
+		right: auto
+		top: 50px
+		$h: calc(100% - 50px)
+		+calc(height, '100% - 50px')
+		z-index: 0
+		width: 200px
+		display: block
+
+	.pane-right
+		position: absolute
+		margin: 0px
+		left: 200px
+		right: 0px
+		top: 50px
+		height: calc(100% - 50px)
+		height: -moz-calc(100% - 50px)
+		height: -webkit-calc(100% - 50px)
+		height: -o-calc(100% - 50px)
+		z-index: 0
+		display: block
+
+	.nav-button-stacked
+		+display(flex)
+		+flex-direction(row)
+		+flex-wrap(wrap)
+		height: 100%
+		border-bottom: 1px solid gray
+
+	.nav-button-box
+		min-width: 200px
+		min-height: 75px
+		text-align: center
+		&:hover
+			background-color: lightblue
+			
+		.active
+			background-color: lightgray
