@@ -449,6 +449,9 @@ body, html {
   position: fixed;
   width: 100%;
   z-index: 10; }
+  .navbar .navbar-toggle {
+    float: left;
+    margin-left: 20px; }
 
 .navbar-default {
   background-color: #DCA724;
