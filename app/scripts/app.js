@@ -20,9 +20,9 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'              // <= Used to set active nav button using name matching.
       })
       .when('/map', {
         templateUrl: 'views/map.html',
@@ -52,20 +52,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  // })
-
-  // .directive('mapCanvas', function() {
-  //   return {
-  //       restrict: 'A',
-  //       link: function(scope, element) {
-  //         var google = google || null;
-  //         if (google) {
-  //           var mapOptions = {
-  //               zoom: 5,
-  //               center: new google.maps.LatLng(54.8833,-122.6667)    // Change this to BC with correct zoom factor
-  //           };
-  //           new google.maps.Map(element[0], mapOptions);
-  //         }
-  //       }
-  //   };
   });

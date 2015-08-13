@@ -1,20 +1,36 @@
-$pane-left-width: 125px
 $nav-item-count: 6
-$header-height: 50px
-$footer-height: 2em
+$pane-left-width: 100px
+$header-height: 80px
+$dbc-blue: #004B8D
+
+.center-img
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+	
 
 body,html
 	height: 100%
 
+	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif
+	color: #333
+	-webkit-font-smoothing: antialiased
+
 	.header
 		height: $header-height
+		background-color: $dbc-blue
 
-	.line-under
-		border-bottom: 1px solid lightgrey
-		margin: 5px
-	.line-right
-		border-right: 1px solid lightgrey
-		margin: 0 5px
+		.subscribe-btns
+			position: absolute
+			right: 60px
+			top: 30px
+			img
+				margin-right: 5px
+
+	.img-fit-height
+		height: 100%
 
 	.max-content
 		height: 100%
@@ -30,7 +46,7 @@ body,html
 		margin: 0px
 		left: 0px
 		right: auto
-		top: 50px
+		top: $header-height
 		+calc(height, '100% - 50px')
 		z-index: 0
 		width: $pane-left-width
@@ -42,7 +58,7 @@ body,html
 		margin: 0px
 		left: $pane-left-width
 		right: 0px
-		top: 50px
+		top: $header-height
 		height: calc(100% - 50px)
 		height: -moz-calc(100% - 50px)
 		height: -webkit-calc(100% - 50px)
@@ -50,8 +66,12 @@ body,html
 		z-index: 0
 		display: block
 		overflow-y: scroll
+		background-color: #9BBEDF
 
+	.line-top
+		border-top: 1px solid lightgrey
 
+	/* This is for div style nav buttons that resize vertically */
 	.nav-div-stacked
 		height: 100%
 		background-color: silver
@@ -62,15 +82,51 @@ body,html
 			min-height: 40px
 			max-height: 80px
 			width: 100%
-			color: brown
+			color: $dbc-blue
 			&:hover
 				background-color: lightgray
-				color: black
+				color: darken($dbc-blue, 3)
 			span
 				position: absolute
 				top: 50%
 				left: 50%
 				transform: translate(-50%, -50%)
 				&:before
-					padding-right: 5px 		/* Space between glyphicon and text */
+					padding-right: 5px
 					font-size: 32px
+		.nav-selected
+			background-color: $dbc-blue
+			color: #DCA724
+			&:hover
+				background-color: $dbc-blue
+				color: #DCA724
+
+.ribbon-box
+	@include size(100px)
+	border: 1px solid #bbb
+	position: relative
+
+.ribbon-wrapper
+	$action-color: #477dca !default
+	$ribbon-background: $action-color
+	$ribbon-size: 85px
+
+	@include size($ribbon-size)
+	overflow: hidden
+	position: absolute
+	right: -1px
+	top: -1px
+
+	.ribbon
+		@include transform(rotate(45deg))
+		background-color: $ribbon-background
+		box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+		color: #fff
+		font-size: 0.8em
+		left: -5px
+		line-height: 1.5em
+		padding: 2px 7px
+		position: relative
+		text-align: center
+		top: 15px
+		width: 120px

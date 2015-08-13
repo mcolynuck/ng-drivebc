@@ -20,38 +20,48 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+
     <!-- Add your site or application content here -->
-    <div class="header line-under">
-      <div class="container">
-        <div class="header">
-          <a class="navbar-brand" href="#/">DriveBC</a>
-        </div>
+    <div class="header">  
+      <a class="" href="#/"><img class="img-fit-height" ng-src="images/drivebc_banner.jpg" alt="Description" /></a>
+
+      <div class="subscribe-btns">
+        
+
+        <subscribebtns btns="[{name:'email', href:'http://email.drivebc.ca'},{name:'twitter', href:'http://drivebc.ca/static/twitter/twitter_map.html'}, {name:'rss', href:'http://drivebc.ca/static/rss/rss_map.html'}]"></subscribebtns>
+
+        <a href="http://email.drivebc.ca" target="_blank">
+          <img src="images/email_up.png" onmouseover="this.src='images/email_down.png'" onmouseout="this.src='images/email_up.png'">
+        </a>
+        <a href="static/twitter/twitter_map.html" target="_blank">
+          <img src="images/twitter_up.png" onmouseover="this.src='images/twitter_down.png'" onmouseout="this.src='images/twitter_up.png'">
+        </a>
+        <a href="../../static/rss/rss_map.html" target="_blank">
+          <img src="images/rss_up.png" onmouseover="this.src='images/rss_down.png'" onmouseout="this.src='images/rss_up.png'">
+        </a>
       </div>
     </div>
 
     <div ng-controller="RootCtrl">
 
-      <div style="width:100%">
-        <div>
-          <div class="pane-left">
-            <div class="nav-div-stacked">
-              <a ng-href="#/home" title="Home"><div><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div></a>
-              <a ng-href="#/map" title="Map"><div><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div></a>
-              <a ng-href="#/list" title="List"><div><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></div></a>
-              <a ng-href="#/webcams" title="Webcam"><div><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></div></a>
-              <a ng-href="#/links" title="Links"><div><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></div></a>
-              <a ng-href="#/help" title="Help"><div><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></div></a>
-            </div>
-          </div>
+      <div class="pane-left line-top">
 
-          <div class="pane-right" style="background-color:yellow;">
-            <main class="max-content" style="background-color:lightblue; display:inline-block; vertical-align:top;">
-              
-              <div class="max-content" ng-view></div>
-            
-            </main>
-          </div>            
+        <div class="nav-div-stacked">
+          <a ng-href="#/home" title="Home"><div ng-class="{'nav-selected': activeNavId == 'home'}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div></a>
+          <a ng-href="#/map" title="Map"><div ng-class="{'nav-selected': activeNavId == 'map'}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div></a>
+          <a ng-href="#/list" title="List"><div ng-class="{'nav-selected': activeNavId == 'list'}"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></div></a>
+          <a ng-href="#/webcams" title="Webcams"><div ng-class="{'nav-selected': activeNavId == 'webcams'}"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span></div></a>
+          <a ng-href="#/links" title="Links"><div ng-class="{'nav-selected': activeNavId == 'links'}"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></div></a>
+          <a ng-href="#/help" title="Help"><div ng-class="{'nav-selected': activeNavId == 'help'}"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></div></a>
         </div>
+      </div>
+
+      <div class="pane-right">
+        <main class="max-content">
+          
+          <div class="max-content" ng-view></div>
+        
+        </main>
       </div>
 
     </div>  <!-- root controller -->
@@ -71,7 +81,6 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -83,22 +92,15 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="https://maps.googleapis.com/maps/api/js"></script>
-
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/root.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/map.js"></script>
         <script src="scripts/controllers/list.js"></script>
         <script src="scripts/controllers/webcams.js"></script>
         <script src="scripts/controllers/links.js"></script>
         <script src="scripts/controllers/help.js"></script>
         <!-- endbuild -->
-
-   <script type="text/javascript">
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip(); 
-      });
-    </script>
 
 </body>
 </html>

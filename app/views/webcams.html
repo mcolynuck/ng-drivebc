@@ -1,3 +1,86 @@
-<div class="container">
-webcams page
+<style type="text/css">
+	.navbar-default {
+	    background-color: silver;
+	    border-color: silver;
+	    margin-left: 1px;    
+	}
+
+	.navbar-default .navbar-nav > .active > a, 
+	.navbar-default .navbar-nav > .active > a:hover, 
+	.navbar-default .navbar-nav > .active > a:focus {
+	    color: #DCA724;
+	    background-color: #004B8D;
+	}
+
+	.navbar-default .navbar-nav > li {
+		border-right: 1px #DCA724 solid;
+	}
+	.navbar-default .navbar-nav > li > a {
+	    color: #004B8D;
+	    font-weight: bold;
+	}
+	.navbar-default .navbar-nav > li > a:hover{
+	    color: #004B8D;
+		background-color: lightgray;
+	}
+
+	.webcam-block {
+		width: 200px;
+	    height: 250px;
+	    overflow: hidden;
+	}
+	.webcam-block:hover {
+		background-color: green;
+	}
+	.webcam-block-content {
+	    text-align: center;
+	    height: 100%;
+	    padding: 20px 5px;
+	}
+
+	.webcam-title {
+		font-weight: bold;
+	}
+</style>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#webcam-region-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="webcam-region-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: webcamRegion.region == 'Vancouver Island'}"><a href="#/webcams?region=Vancouver Island">Vancouver Island</a></li>
+        <li ng-class="{active: webcamRegion.region == 'Lower Mainland'}"><a href="#/webcams?region=Lower Mainland">Lower Mainland</a></li>
+        <li ng-class="{active: webcamRegion.region == 'Border Cams'}"><a href="#/webcams?region=Border Cams">Border</a></li>
+        <li ng-class="{active: webcamRegion.region == 'Southern Interior'}"><a href="#/webcams?region=Southern Interior">Southern Interior</a></li>
+        <li ng-class="{active: webcamRegion.region == 'Northern'}"><a href="#/webcams?region=Northern">Northern</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="" style="display:flex; flex-wrap:wrap; justify-content:space-around;">
+	<div ng-repeat="cam in webcamData | filter:webcamRegion" style="width: 200px; height: 250px;">
+		<div class="webcam-block">
+			<div class="webcam-block-content">				
+				<span ng-if="cam.isNew">
+					<div class="newCamLabel" style="color:yellow;background:blue;">New!</div>
+				</span>
+				<a target="webcamWindow" href="{{ cam.clickurl }}">
+					<img class="WebCamImg" title="Click image for webcam and weather details" ng-src="{{ cam.imgurl }}"/>
+				</a>
+				<span class="webcam-title">{{ cam.title }}</span>
+				<span class="webcam-caption"> - {{ cam.caption }}</span>
+			</div>
+		</div>
+	</div>
 </div>
