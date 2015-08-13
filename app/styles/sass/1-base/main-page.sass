@@ -110,12 +110,7 @@ body,html
 	$action-color: #477dca !default
 	$ribbon-background: $action-color
 	$ribbon-size: 85px
-
-	/*@include size($ribbon-size)*/
 	overflow: hidden
-	position: absolute
-	right: -1px
-	top: -1px
 
 	.ribbon
 		@include transform(rotate(45deg))
@@ -132,3 +127,59 @@ body,html
 		top: 28px
 		width: 120px
 		margin-top: -17px
+
+
+	.navbar-default 
+		background-color: silver
+		border-color: silver
+		margin-left: 1px 
+	
+
+	.navbar-default .navbar-nav > .active > a, 
+	.navbar-default .navbar-nav > .active > a:hover, 
+	.navbar-default .navbar-nav > .active > a:focus
+		color: #DCA724
+		background-color: #004B8D
+	
+
+	.navbar-default .navbar-nav > li 
+		border-right: 1px #DCA724 solid
+	
+	.navbar-default .navbar-nav > li > a 
+		color: #004B8D
+		font-weight: bold
+	
+	.navbar-default .navbar-nav > li > a:hover
+		color: #004B8D
+		background-color: lightgray
+	
+
+	.equal-spaced li 
+		width: 150px
+		text-align: center
+	
+
+	.webcam-block 
+		width: 200px
+		height: 250px
+		overflow: hidden
+	
+	.webcam-block:hover 
+		background-color: silver
+		border: 1px solid brown
+	
+	.webcam-block-content 
+		text-align: center
+		height: 100%
+		padding: 20px 5px
+	
+	.webcam-img 
+		
+	
+	.webcam-title 
+		font-weight: bold
+	
+.webcam-content
+	display: flex
+	flex-wrap: wrap
+	justify-content:space-around

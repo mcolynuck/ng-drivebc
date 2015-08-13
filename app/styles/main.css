@@ -450,11 +450,7 @@ body, html {
   position: relative; }
 
 .ribbon-wrapper {
-  /*@include size($ribbon-size) */
-  overflow: hidden;
-  position: absolute;
-  right: -1px;
-  top: -1px; }
+  overflow: hidden; }
   .ribbon-wrapper .ribbon {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -474,5 +470,42 @@ body, html {
     top: 28px;
     width: 120px;
     margin-top: -17px; }
+  .ribbon-wrapper .navbar-default {
+    background-color: silver;
+    border-color: silver;
+    margin-left: 1px; }
+  .ribbon-wrapper .navbar-default .navbar-nav > .active > a,
+  .ribbon-wrapper .navbar-default .navbar-nav > .active > a:hover,
+  .ribbon-wrapper .navbar-default .navbar-nav > .active > a:focus {
+    color: #DCA724;
+    background-color: #004B8D; }
+  .ribbon-wrapper .navbar-default .navbar-nav > li {
+    border-right: 1px #DCA724 solid; }
+  .ribbon-wrapper .navbar-default .navbar-nav > li > a {
+    color: #004B8D;
+    font-weight: bold; }
+  .ribbon-wrapper .navbar-default .navbar-nav > li > a:hover {
+    color: #004B8D;
+    background-color: lightgray; }
+  .ribbon-wrapper .equal-spaced li {
+    width: 150px;
+    text-align: center; }
+  .ribbon-wrapper .webcam-block {
+    width: 200px;
+    height: 250px;
+    overflow: hidden; }
+  .ribbon-wrapper .webcam-block:hover {
+    background-color: silver;
+    border: 1px solid brown; }
+  .ribbon-wrapper .webcam-block-content {
+    text-align: center;
+    height: 100%;
+    padding: 20px 5px; }
+  .ribbon-wrapper .webcam-title {
+    font-weight: bold; }
+
+.webcam-content {
+  display: flex;
+  flex-wrap: wrap; }
 
 /*# sourceMappingURL=main.css.map */
