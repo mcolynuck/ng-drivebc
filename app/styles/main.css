@@ -366,9 +366,10 @@ body, html {
   height: 100%;
   font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
   color: #333;
-  -webkit-font-smoothing: antialiased;
-  /* This is for div style nav buttons that resize vertically */ }
+  -webkit-font-smoothing: antialiased; }
   body .header, html .header {
+    position: fixed;
+    width: 100%;
     height: 80px;
     background-color: #004B8D; }
     body .header .subscribe-btns, html .header .subscribe-btns {
@@ -382,12 +383,8 @@ body, html {
   body .max-content, html .max-content {
     height: 100%;
     width: 100%; }
-  body .map-container, html .map-container {
-    height: 100%; }
-    body .map-container #map, html .map-container #map {
-      height: 100%; }
   body .pane-left, html .pane-left {
-    position: absolute;
+    position: fixed;
     margin: 0px;
     left: 0px;
     right: auto;
@@ -404,10 +401,10 @@ body, html {
     left: 100px;
     right: 0px;
     top: 80px;
-    height: calc(100% - 50px);
-    height: -moz-calc(100% - 50px);
-    height: -webkit-calc(100% - 50px);
-    height: -o-calc(100% - 50px);
+    height: calc(100% - 80px);
+    height: -moz-calc(100% - 80px);
+    height: -webkit-calc(100% - 80px);
+    height: -o-calc(100% - 80px);
     z-index: 0;
     display: block;
     overflow-y: scroll;
@@ -443,6 +440,57 @@ body, html {
         background-color: #004B8D;
         color: #DCA724; }
 
+.map-container {
+  height: 100%; }
+  .map-container #map {
+    height: 100%; }
+
+.navbar {
+  position: fixed !important;
+  width: 100%;
+  z-index: 10; }
+
+.navbar-default {
+  background-color: silver;
+  border-color: silver;
+  margin-left: 1px; }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: #DCA724;
+    background-color: #004B8D; }
+  .navbar-default .navbar-nav > li {
+    border-right: 1px #DCA724 solid; }
+    .navbar-default .navbar-nav > li > a {
+      color: #004B8D;
+      font-weight: bold; }
+      .navbar-default .navbar-nav > li > a:hover {
+        color: #004B8D;
+        background-color: lightgray; }
+
+.equal-spaced li {
+  width: 150px;
+  text-align: center; }
+
+.webcam-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 60px; }
+  .webcam-content .webcam-block {
+    width: 200px;
+    height: 250px;
+    overflow: hidden; }
+    .webcam-content .webcam-block:hover {
+      background-color: silver;
+      border: 1px solid brown; }
+    .webcam-content .webcam-block .webcam-block-content {
+      text-align: center;
+      height: 100%;
+      padding: 20px 5px; }
+    .webcam-content .webcam-block .webcam-title {
+      font-weight: bold; }
+
 .ribbon-box {
   width: 100%;
   height: 100%;
@@ -470,42 +518,5 @@ body, html {
     top: 28px;
     width: 120px;
     margin-top: -17px; }
-  .ribbon-wrapper .navbar-default {
-    background-color: silver;
-    border-color: silver;
-    margin-left: 1px; }
-  .ribbon-wrapper .navbar-default .navbar-nav > .active > a,
-  .ribbon-wrapper .navbar-default .navbar-nav > .active > a:hover,
-  .ribbon-wrapper .navbar-default .navbar-nav > .active > a:focus {
-    color: #DCA724;
-    background-color: #004B8D; }
-  .ribbon-wrapper .navbar-default .navbar-nav > li {
-    border-right: 1px #DCA724 solid; }
-  .ribbon-wrapper .navbar-default .navbar-nav > li > a {
-    color: #004B8D;
-    font-weight: bold; }
-  .ribbon-wrapper .navbar-default .navbar-nav > li > a:hover {
-    color: #004B8D;
-    background-color: lightgray; }
-  .ribbon-wrapper .equal-spaced li {
-    width: 150px;
-    text-align: center; }
-  .ribbon-wrapper .webcam-block {
-    width: 200px;
-    height: 250px;
-    overflow: hidden; }
-  .ribbon-wrapper .webcam-block:hover {
-    background-color: silver;
-    border: 1px solid brown; }
-  .ribbon-wrapper .webcam-block-content {
-    text-align: center;
-    height: 100%;
-    padding: 20px 5px; }
-  .ribbon-wrapper .webcam-title {
-    font-weight: bold; }
-
-.webcam-content {
-  display: flex;
-  flex-wrap: wrap; }
 
 /*# sourceMappingURL=main.css.map */

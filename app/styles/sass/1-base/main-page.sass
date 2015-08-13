@@ -19,6 +19,8 @@ body,html
 	-webkit-font-smoothing: antialiased
 
 	.header
+		position: fixed
+		width: 100%
 		height: $header-height
 		background-color: $dbc-blue
 
@@ -36,13 +38,8 @@ body,html
 		height: 100%
 		width: 100%
 
-	.map-container
-		height: 100%
-		#map
-			height: 100%
-
 	.pane-left
-		position: absolute
+		position: fixed
 		margin: 0px
 		left: 0px
 		right: auto
@@ -59,10 +56,10 @@ body,html
 		left: $pane-left-width
 		right: 0px
 		top: $header-height
-		height: calc(100% - 50px)
-		height: -moz-calc(100% - 50px)
-		height: -webkit-calc(100% - 50px)
-		height: -o-calc(100% - 50px)
+		height: calc(100% - #{$header-height})
+		height: -moz-calc(100% - #{$header-height})
+		height: -webkit-calc(100% - #{$header-height})
+		height: -o-calc(100% - #{$header-height})
 		z-index: 0
 		display: block
 		overflow-y: scroll
@@ -71,7 +68,6 @@ body,html
 	.line-top
 		border-top: 1px solid lightgrey
 
-	/* This is for div style nav buttons that resize vertically */
 	.nav-div-stacked
 		height: 100%
 		background-color: silver
@@ -100,86 +96,3 @@ body,html
 			&:hover
 				background-color: $dbc-blue
 				color: #DCA724
-
-.ribbon-box
-	@include size(100%)
-	border: 1px solid #bbb
-	position: relative
-
-.ribbon-wrapper
-	$action-color: #477dca !default
-	$ribbon-background: $action-color
-	$ribbon-size: 85px
-	overflow: hidden
-
-	.ribbon
-		@include transform(rotate(45deg))
-		background-color: $ribbon-background
-		box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
-		color: yellow
-		font-size: 0.8em
-		font-weight: bold
-		left: 109px
-		line-height: 1.5em
-		padding: 1px 7px
-		position: relative
-		text-align: center
-		top: 28px
-		width: 120px
-		margin-top: -17px
-
-
-	.navbar-default 
-		background-color: silver
-		border-color: silver
-		margin-left: 1px 
-	
-
-	.navbar-default .navbar-nav > .active > a, 
-	.navbar-default .navbar-nav > .active > a:hover, 
-	.navbar-default .navbar-nav > .active > a:focus
-		color: #DCA724
-		background-color: #004B8D
-	
-
-	.navbar-default .navbar-nav > li 
-		border-right: 1px #DCA724 solid
-	
-	.navbar-default .navbar-nav > li > a 
-		color: #004B8D
-		font-weight: bold
-	
-	.navbar-default .navbar-nav > li > a:hover
-		color: #004B8D
-		background-color: lightgray
-	
-
-	.equal-spaced li 
-		width: 150px
-		text-align: center
-	
-
-	.webcam-block 
-		width: 200px
-		height: 250px
-		overflow: hidden
-	
-	.webcam-block:hover 
-		background-color: silver
-		border: 1px solid brown
-	
-	.webcam-block-content 
-		text-align: center
-		height: 100%
-		padding: 20px 5px
-	
-	.webcam-img 
-		
-	
-	.webcam-title 
-		font-weight: bold
-	
-.webcam-content
-	display: flex
-	flex-wrap: wrap
-	justify-content:space-around

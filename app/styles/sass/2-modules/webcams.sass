@@ -1,0 +1,88 @@
+.navbar
+	position: fixed !important
+	width: 100%
+	z-index: 10
+
+.navbar-default 
+	background-color: silver
+	border-color: silver
+	margin-left: 1px 
+
+
+	.navbar-nav 
+		> .active 
+			> a, 
+			a:hover, 
+			> a:focus
+				color: #DCA724
+				background-color: #004B8D
+
+
+	.navbar-nav 
+		> li 
+			border-right: 1px #DCA724 solid
+			> a 
+				color: #004B8D
+				font-weight: bold
+				&:hover
+					color: #004B8D
+					background-color: lightgray
+
+
+.equal-spaced li 
+	width: 150px
+	text-align: center
+
+
+.webcam-content
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	padding-top: 60px		/* Make room for fixed navbar at top */
+
+	.webcam-block 
+		width: 200px
+		height: 250px
+		overflow: hidden
+		&:hover 
+			background-color: silver
+			border: 1px solid brown
+
+		.webcam-block-content 
+			text-align: center
+			height: 100%
+			padding: 20px 5px
+
+		.webcam-img 
+			
+
+		.webcam-title 
+			font-weight: bold
+
+
+.ribbon-box
+	@include size(100%)
+	border: 1px solid #bbb
+	position: relative
+
+.ribbon-wrapper
+	$action-color: #477dca !default
+	$ribbon-background: $action-color
+	$ribbon-size: 85px
+	overflow: hidden
+
+	.ribbon
+		@include transform(rotate(45deg))
+		background-color: $ribbon-background
+		box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3)
+		color: yellow
+		font-size: 0.8em
+		font-weight: bold
+		left: 109px
+		line-height: 1.5em
+		padding: 1px 7px
+		position: relative
+		text-align: center
+		top: 28px
+		width: 120px
+		margin-top: -17px

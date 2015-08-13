@@ -26,10 +26,7 @@
       <a class="" href="#/"><img class="img-fit-height" ng-src="images/drivebc_banner.jpg" alt="Description" /></a>
 
       <div class="subscribe-btns">
-        
-
-        <subscribebtns btns="[{name:'email', href:'http://email.drivebc.ca'},{name:'twitter', href:'http://drivebc.ca/static/twitter/twitter_map.html'}, {name:'rss', href:'http://drivebc.ca/static/rss/rss_map.html'}]"></subscribebtns>
-
+        <!-- Prob w/angular and onmouseover/out when I tried to put into template -->
         <a href="http://email.drivebc.ca" target="_blank">
           <img src="images/email_up.png" onmouseover="this.src='images/email_down.png'" onmouseout="this.src='images/email_up.png'">
         </a>
@@ -45,7 +42,6 @@
     <div ng-controller="RootCtrl">
 
       <div class="pane-left line-top">
-
         <div class="nav-div-stacked">
           <a ng-href="#/home" title="Home"><div ng-class="{'nav-selected': activeNavId == 'home'}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div></a>
           <a ng-href="#/map" title="Map"><div ng-class="{'nav-selected': activeNavId == 'map'}"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></div></a>
@@ -57,11 +53,9 @@
       </div>
 
       <div class="pane-right">
-        <main class="max-content">
-          
-          <div class="max-content" ng-view></div>
-        
-        </main>
+        <div class="max-content">      
+          <div ng-view></div>
+        </div>
       </div>
 
     </div>  <!-- root controller -->
@@ -101,6 +95,5 @@
         <script src="scripts/controllers/links.js"></script>
         <script src="scripts/controllers/help.js"></script>
         <!-- endbuild -->
-
 </body>
 </html>

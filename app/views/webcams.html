@@ -1,56 +1,3 @@
-<style type="text/css">
-	.navbar-default {
-	    background-color: silver;
-	    border-color: silver;
-	    margin-left: 1px;    
-	}
-
-	.navbar-default .navbar-nav > .active > a, 
-	.navbar-default .navbar-nav > .active > a:hover, 
-	.navbar-default .navbar-nav > .active > a:focus {
-	    color: #DCA724;
-	    background-color: #004B8D;
-	}
-
-	.navbar-default .navbar-nav > li {
-		border-right: 1px #DCA724 solid;
-	}
-	.navbar-default .navbar-nav > li > a {
-	    color: #004B8D;
-	    font-weight: bold;
-	}
-	.navbar-default .navbar-nav > li > a:hover{
-	    color: #004B8D;
-		background-color: lightgray;
-	}
-
-	.equal-spaced li {
-		width: 150px;
-		text-align: center;
-	}
-
-	.webcam-block {
-		width: 200px;
-	    height: 250px;
-	    overflow: hidden;
-	}
-	.webcam-block:hover {
-		background-color: silver;
-		border: 1px solid brown;
-	}
-	.webcam-block-content {
-	    text-align: center;
-	    height: 100%;
-	    padding: 20px 5px;
-	}
-	.webcam-img {
-		
-	}
-	.webcam-title {
-		font-weight: bold;
-	}
-</style>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,24 +19,23 @@
         <li ng-class="{active: webcamRegion.region == 'Southern Interior'}"><a href="#/webcams?region=Southern Interior">Southern Interior</a></li>
         <li ng-class="{active: webcamRegion.region == 'Northern'}"><a href="#/webcams?region=Northern">Northern</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 <div class="webcam-content">
-	<div ng-repeat="cam in webcamData | filter:webcamRegion" style="width: 200px; height: 250px;">
+	<div ng-repeat="cam in webcamData | filter:webcamRegion">
 		<div class="webcam-block">
-			<div class="webcam-block-content">
-			
-			<div class="ribbon-box">
-				<div class="ribbon-wrapper">
-					<div class="ribbon" ng-if="cam.isNew">New</div>
-
-					<a target="_blank" href="{{ cam.clickurl }}">
-						<img class="webcam-img" title="Click image for webcam and weather details" ng-src="{{ cam.imgurl }}"/>
-					</a>
-					<span class="webcam-title">{{ cam.title }}</span>
-					<span class="webcam-caption"> - {{ cam.caption }}</span>
+			<div class="webcam-block-content">			
+				<div class="ribbon-box">
+					<div class="ribbon-wrapper">
+						<div class="ribbon" ng-if="cam.isNew">New</div>
+						<a target="_blank" href="{{ cam.clickurl }}">
+							<img class="webcam-img" title="Click image for webcam and weather details" ng-src="{{ cam.imgurl }}"/>
+						</a>
+						<span class="webcam-title">{{ cam.title }}</span>
+						<span class="webcam-caption"> - {{ cam.caption }}</span>
+						</div>
 					</div>
 				</div>
 			</div>
