@@ -444,14 +444,13 @@ body, html {
         color: #DCA724; }
 
 .ribbon-box {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #bbb;
   position: relative; }
 
 .ribbon-wrapper {
-  width: 85px;
-  height: 85px;
+  /*@include size($ribbon-size) */
   overflow: hidden;
   position: absolute;
   right: -1px;
@@ -464,14 +463,16 @@ body, html {
     transform: rotate(45deg);
     background-color: #477dca;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-    color: #fff;
+    color: yellow;
     font-size: 0.8em;
-    left: -5px;
+    font-weight: bold;
+    left: 109px;
     line-height: 1.5em;
-    padding: 2px 7px;
+    padding: 1px 7px;
     position: relative;
     text-align: center;
-    top: 15px;
-    width: 120px; }
+    top: 28px;
+    width: 120px;
+    margin-top: -17px; }
 
 /*# sourceMappingURL=main.css.map */
