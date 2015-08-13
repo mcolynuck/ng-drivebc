@@ -446,31 +446,33 @@ body, html {
     height: 100%; }
 
 .navbar {
-  position: fixed !important;
+  position: fixed;
   width: 100%;
   z-index: 10; }
 
 .navbar-default {
-  background-color: silver;
+  background-color: #DCA724;
   border-color: silver;
-  margin-left: 1px; }
+  margin-left: 1px;
+  font-size: 14px; }
   .navbar-default .navbar-nav > .active > a,
   .navbar-default .navbar-nav > .active a:hover,
   .navbar-default .navbar-nav > .active > a:focus {
     color: #DCA724;
     background-color: #004B8D; }
-  .navbar-default .navbar-nav > li {
-    border-right: 1px #DCA724 solid; }
-    .navbar-default .navbar-nav > li > a {
+  .navbar-default .navbar-nav > li > a {
+    color: #004B8D;
+    font-weight: bold; }
+    .navbar-default .navbar-nav > li > a:hover {
       color: #004B8D;
-      font-weight: bold; }
-      .navbar-default .navbar-nav > li > a:hover {
-        color: #004B8D;
-        background-color: lightgray; }
+      background-color: lightgray; }
 
 .equal-spaced li {
-  width: 150px;
-  text-align: center; }
+  width: 200px;
+  text-align: center;
+  border-left: 1px solid lightgray; }
+  .equal-spaced li:nth-last-child(1) {
+    border-right: 1px solid lightgray; }
 
 .webcam-content {
   display: flex;

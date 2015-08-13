@@ -1,12 +1,13 @@
 .navbar
-	position: fixed !important
+	position: fixed
 	width: 100%
 	z-index: 10
 
 .navbar-default 
-	background-color: silver
+	background-color: #DCA724
 	border-color: silver
 	margin-left: 1px 
+	font-size: 14px
 
 
 	.navbar-nav 
@@ -20,7 +21,6 @@
 
 	.navbar-nav 
 		> li 
-			border-right: 1px #DCA724 solid
 			> a 
 				color: #004B8D
 				font-weight: bold
@@ -30,8 +30,11 @@
 
 
 .equal-spaced li 
-	width: 150px
+	width: 200px
 	text-align: center
+	border-left: 1px solid lightgray
+	&:nth-last-child(1)		/* Only last item gets a right border */
+		border-right: 1px solid lightgray
 
 
 .webcam-content
