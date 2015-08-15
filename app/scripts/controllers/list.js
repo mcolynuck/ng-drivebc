@@ -3,17 +3,19 @@
 // Create img html based on event string value (case insensitive)
 function setIconByType(evType){
   if(evType){
+    var imgFile = "";
     if(evType.toLowerCase() == 'incident'){
-      return '<img src="images/incident.png"/>';
+      imgFile = "images/incident.png";
     } else if (evType.toLowerCase() == 'future planned'){
-      return '<img src="images/blue-cone.png"/>';
+      imgFile = "images/blue-cone.png";
     } else if (evType.toLowerCase() == 'current planned'){
-      return '<img src="images/red-cone.png"/>';
+      imgFile = "images/red-cone.png";
     } else if (evType.toLowerCase() == 'road condition'){
-      return '<img src="images/road.png"/>';
+      imgFile = "images/road.png";
     } else {
       return evType;
     }
+    return '<img src="'+imgFile+'" title="'+evType+'" alt="'+evType+'"/>';
   } else {
     return evType;
   }
