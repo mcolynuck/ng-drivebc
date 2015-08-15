@@ -15,7 +15,7 @@ angular
     'ngRoute',
     'map_directives', 
     'grid_directives',
-    'angularGrid',
+    // 'angularGrid',
     'ngSanitize'
   ])
   .config(function ($routeProvider) {

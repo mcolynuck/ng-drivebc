@@ -73,11 +73,11 @@ angular.module('drivebcApp')
     });
 
     var columnDefs = [
-        {label: "Type",         field: "eventType",   width: 150, isMultiline: false, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}},
-        {label: "Severity",     field: "severity",    width: 100, isMultiline: false},
-        {label: "Route",        field: "road",        width: 250, isMultiline: false},
-        {label: "Description",  field: "description", width: 650, isMultiline: true},
-        {label: "Last Updated", field: "lastUpdated", width: 310, isMultiline: false}
+        {label: "Type",         field: "eventType",   width: "15%", isMultiline: false, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}},
+        {label: "Severity",     field: "severity",    width: "10%", isMultiline: false},
+        {label: "Route",        field: "road",        width: "25%", isMultiline: false},
+        {label: "Description",  field: "description", width: "65%", isMultiline: true},
+        {label: "Last Updated", field: "lastUpdated", width: "31%", isMultiline: false}
     ];
 
     $scope.gridOptions = {

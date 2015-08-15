@@ -1,9 +1,9 @@
 <div hello world</div>
-<div id="listViewGrid" class=" x-panel  x-grid-with-col-lines x-grid-panel" style="width: 1444px;">
+<div id="listViewGrid" class=" x-panel  x-grid-with-col-lines x-grid-panel" style="width: 100%">
     <div class="x-panel-bwrap" id="">
 <!-- START OF TOP BAR =============================================================================== -->
-        <div class="x-panel-tbar x-panel-tbar-noheader" id="" style="width: 1444px;">
-            <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: 1438px;">
+        <div class="x-panel-tbar x-panel-tbar-noheader" id="" style="width: 100%">
+            <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: 100%">
                 <table cellspacing="0" class="x-toolbar-ct">
                     <tbody>
                         <tr>
@@ -108,18 +108,18 @@
         </div>
 <!-- END OF TOP BAR =============================================================================== -->
 <!-- START OF BODY AREA =============================================================================== -->        
-        <div class="x-panel-body x-panel-body-noheader" id="" style="height: auto; width: 1442px;">
+        <div class="x-panel-body x-panel-body-noheader" id="" style="height: auto; width: 100%;">
             <div class="x-grid3" hidefocus="true" id="">
                 <div class="x-grid3-viewport" id="">
                     <!-- START OF HEADER ============================================================= -->
                     <div class="x-grid3-header" id="">
                         <div class="x-grid3-header-inner" id="">
-                            <div class="x-grid3-header-offset" style="width: 1441px;">
+                            <div class="x-grid3-header-offset" style="width: 100%;">
                             <!-- START OF HEADER CONTENT ======================================================== -->
-                                <table border="0" cellspacing="0" cellpadding="0" style="width: 1422px;">
+                                <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
                                     <thead>
                                         <tr class="x-grid3-hd-row">
-                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }}px;">
+                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};">
                                                 <div class="x-grid3-hd-inner x-grid3-hd-1" unselectable="on" style="">
                                                     <a class="x-grid3-hd-btn" href="#"></a>{{ col.label }}</div>
                                             </td>
@@ -134,13 +134,13 @@
                     <!-- END OF HEADER ============================================================= -->
                     <!-- START OF ROWS ============================================================= -->
                     <div class="x-grid3-scroller" id="" style="overflow: visible; position: static;">
-                        <div class="x-grid3-body" style="width: 1422px;" id="">
+                        <div class="x-grid3-body" style="width: 100%;" id="">
                         	<!-- START OF ROW ============================================================= -->
-                            <div ng-repeat="row in gridOptions.rowData" class="x-grid3-row   severity-major x-grid3-row-first " style="width:1422px;"> 
-                                <table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:1422px;">
+                            <div ng-repeat="row in gridOptions.rowData" class="x-grid3-row   severity-major x-grid3-row-first " style="width:100%;"> 
+                                <table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:100%;">
                                     <tbody>
                                         <tr>
-                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-col x-grid3-cell x-grid3-td-{{$index}}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last': $index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }}px;" tabindex="0">
+                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-col x-grid3-cell x-grid3-td-{{$index}}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last': $index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};" tabindex="0">
                                                 
                                                 <!-- not multiline and no cell renderer -->
                                                 <div ng-if="!col.isMultiline && !col.cellRenderer" class="x-grid3-cell-inner x-grid3-col-{{ $index }}" unselectable="on">{{ row[col.field] }}</div>
@@ -175,8 +175,8 @@
         </div>
 <!-- END OF BODY AREA =============================================================================== -->
 <!-- START OF BOTTOM BAR =============================================================================== -->
-        <div class="x-panel-bbar" id="" style="width: 1444px;">
-            <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="height: 15px; width: 1438px;">
+        <div class="x-panel-bbar" id="" style="width: 100%;">
+            <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="height: 15px; width: 100%;">
                 <table cellspacing="0" class="x-toolbar-ct">
                     <tbody>
                         <tr>
