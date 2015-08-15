@@ -8,5 +8,5 @@
  * Controller of the drivebcApp
  */
 angular.module('drivebcApp')
-  .controller('LinksCtrl', function () {
-  });
+  .controller('LinksCtrl', ['$scope', function ($scope) {
+  }]);

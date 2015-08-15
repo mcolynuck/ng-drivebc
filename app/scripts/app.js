@@ -13,9 +13,10 @@ angular
     // 'ngAnimate',
     // 'ngResource',
     'ngRoute',
-    'map_directives'
-    // ,
-    // 'ngSanitize'
+    'map_directives', 
+    'grid_directives',
+    'angularGrid',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider
