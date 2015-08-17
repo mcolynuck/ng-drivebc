@@ -120,8 +120,11 @@
                                     <thead>
                                         <tr class="x-grid3-hd-row">
                                             <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};">
-                                                <div class="x-grid3-hd-inner x-grid3-hd-1" unselectable="on" style="">
-                                                    <a class="x-grid3-hd-btn" href="#"></a>{{ col.label }}</div>
+                                                <div ng-click="setSortBy(col.field)" class="x-grid3-hd-inner x-grid3-hd-{{ $index }}" unselectable="on" style="">
+                                                    <a class="x-grid3-hd-btn" href="#" id=""></a>
+                                                    {{ col.label }}
+                                                    <img class="x-grid3-sort-icon" src="data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                                </div>
                                             </td>
                                         </tr>
                                     </thead>
@@ -136,7 +139,7 @@
                     <div class="x-grid3-scroller" id="" style="overflow: visible; position: static;">
                         <div class="x-grid3-body" style="width: 100%;" id="">
                         	<!-- START OF ROW ============================================================= -->
-                            <div ng-repeat="row in gridOptions.rowData" class="x-grid3-row   severity-major x-grid3-row-first " style="width:100%;"> 
+                            <div ng-repeat="row in gridOptions.rowData | orderBy: sortCol" class="x-grid3-row severity-major" ng-class="{'x-grid3-row-first':$index==0, 'x-grid3-row-last':($index == (gridOptions.rowData.length - 1))}" style="width:100%;"> 
                                 <table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:100%;">
                                     <tbody>
                                         <tr>

@@ -71,15 +71,16 @@ angular.module('drivebcApp')
 //         $scope.gridOptions.api.onNewRows();
     }).
     error(function(){
-      console.error("Error loading webcam json data. ", arguments);
+      console.error("Error loading event json data. ", arguments);
     });
 
     var columnDefs = [
-        {label: "Type",         field: "eventType",   width: "15%", isMultiline: false, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}},
+// Could add min/max width, sort & sort comparitor, hide, etc.
+        {label: "Type",         field: "eventType",   width: "5%", isMultiline: false, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}},
         {label: "Severity",     field: "severity",    width: "10%", isMultiline: false},
-        {label: "Route",        field: "road",        width: "25%", isMultiline: false},
-        {label: "Description",  field: "description", width: "65%", isMultiline: true},
-        {label: "Last Updated", field: "lastUpdated", width: "31%", isMultiline: false}
+        {label: "Route",        field: "road",        width: "12%", isMultiline: false},
+        {label: "Description",  field: "description", width: "58%", isMultiline: true},
+        {label: "Last Updated", field: "lastUpdated", width: "15%", isMultiline: false}
     ];
 
     $scope.gridOptions = {

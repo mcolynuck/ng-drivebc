@@ -1,0 +1,111 @@
+/* List styling */
+$lightrow-colour : darken(white, 2)
+$darkrow-colour : darken($lightrow-colour, 8)
+
+table
+	margin: 0
+	td
+		padding: 0.75em
+		&:nth-last-child(n+2)
+			border-right: 1px solid lightgray
+
+.x-panel-tbar
+	display: none
+
+
+// start of body 
+.x-panel-body
+
+.x-panel-body-noheader
+
+	.x-grid3
+
+		.x-grid3-viewport
+
+			// start of header section  ----------------------------------------- 
+			.x-grid3-header
+
+				.x-grid3-header-inner
+
+					.x-grid3-header-offset
+						padding-left: 0
+
+						// header row ------------------------------------------- 
+						.x-grid3-hd-row
+							background-color: #DCA724
+							color: #004B8D
+							font-weight: bold
+
+				.x-grid3-hd
+
+				// .x-grid3-td-{{ $index }} 
+
+				.x-grid3-cell
+
+					.x-grid3-cell-first
+
+					.x-grid3-cell-last
+
+					.x-grid3-hd-inner 
+
+						.x-grid3-sort-icon
+							visibility: hidden
+						&:hover
+							.x-grid3-sort-icon
+								visibility: visible
+					//.x-grid3-hd-{{ $index }}
+
+						// heading label clickable 
+						.x-grid3-hd-btn
+
+
+			// TABLE ROWS 
+
+			// horizontal table scroller? 
+			.x-grid3-scroller
+				
+				.x-grid3-body
+
+					.x-grid3-row 
+						&:nth-of-type(even)
+							background: $lightrow-colour
+						&:nth-of-type(odd)
+							background: $darkrow-colour
+
+						.severity-major 
+
+						.x-grid3-row-first
+
+						.x-grid3-row-last
+
+						// Table 
+						.x-grid3-row-table
+
+							// Row ---------------------- 
+							.x-grid3-col
+							.x-grid3-cell
+							/* .x-grid3-td-{{$index}} */
+							
+
+							.x-grid3-cell-first
+							
+							.x-grid3-cell-last
+
+							.x-grid3-cell-inner
+
+							// .x-grid3-col-{{ $index }} 
+
+
+.x-clear
+	clear: both
+
+
+
+.x-grid3-resize-marker
+
+.x-grid3-resize-proxy
+
+
+// Bottom bar panel --------------------------------------- 
+.x-panel-bbar
+	display: none
