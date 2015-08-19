@@ -14,8 +14,10 @@ angular
     // 'ngResource',
     'ngRoute',
     'map_directives', 
+    'ngSanitize',
     'grid_directives',
-    'ngSanitize'
+    'grid_filter_directives',
+    'gridServices'              // Service to manage filtering info between directives (grid, filter checkboxes)
   ])
   .config(function ($routeProvider) {
     $routeProvider

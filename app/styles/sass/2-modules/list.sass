@@ -2,6 +2,12 @@
 $lightrow-colour : darken(white, 2)
 $darkrow-colour : darken($lightrow-colour, 8)
 
+.one-line
+	> li
+		display: inline-block
+		&:nth-last-child(n+2)
+			margin-right: 30px
+
 table
 	margin: 0
 	td
@@ -46,17 +52,33 @@ table
 
 					.x-grid3-cell-last
 
-					.x-grid3-hd-inner 
+					.x-grid3-hd-inner
+						display: block
 
-						.x-grid3-sort-icon
-							visibility: hidden
-						&:hover
-							.x-grid3-sort-icon
-								visibility: visible
-					//.x-grid3-hd-{{ $index }}
+			.x-grid3-sort-icon
+				background-repeat: no-repeat
+				height: 4px
+				width: 13px
+				margin-left: 3px
+				vertical-align: middle
+				visibility: hidden
 
-						// heading label clickable 
-						.x-grid3-hd-btn
+			.sort-desc
+				.x-grid3-sort-icon
+					background-image: url('../images/sort_desc.gif')
+					visibility: visible
+
+			.sort-asc
+				.x-grid3-sort-icon
+					background-image: url('../images/sort_asc.gif')
+					visibility: visible
+
+
+
+			//.x-grid3-hd-{{ $index }}
+
+				// heading label clickable 
+				.x-grid3-hd-btn
 
 
 			// TABLE ROWS 

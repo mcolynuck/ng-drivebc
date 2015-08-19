@@ -1,7 +1,7 @@
-<div hello world</div>
 <div id="listViewGrid" class=" x-panel  x-grid-with-col-lines x-grid-panel" style="width: 100%">
     <div class="x-panel-bwrap" id="">
 <!-- START OF TOP BAR =============================================================================== -->
+<!-- These are not in use, just here for reference should functionality be included to add the toolbar to the table. -->
         <div class="x-panel-tbar x-panel-tbar-noheader" id="" style="width: 100%">
             <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="width: 100%">
                 <table cellspacing="0" class="x-toolbar-ct">
@@ -119,7 +119,7 @@
                                 <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
                                     <thead>
                                         <tr class="x-grid3-hd-row">
-                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};">
+                                            <td ng-repeat="col in gridOptions.columnDefs" id="x-grid-td-{{ $index }}" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1), 'sort-asc': (curSortCol == col.field && isDescendingSort == false), 'sort-desc': (curSortCol == col.field && isDescendingSort == true)}" style="width:{{ col.width }};">
                                                 <div ng-click="setSortBy(col.field)" class="x-grid3-hd-inner x-grid3-hd-{{ $index }}" unselectable="on" style="">
                                                     <a class="x-grid3-hd-btn" href="#" id=""></a>
                                                     {{ col.label }}
@@ -139,7 +139,7 @@
                     <div class="x-grid3-scroller" id="" style="overflow: visible; position: static;">
                         <div class="x-grid3-body" style="width: 100%;" id="">
                         	<!-- START OF ROW ============================================================= -->
-                            <div ng-repeat="row in gridOptions.rowData | orderBy: sortCol" class="x-grid3-row severity-major" ng-class="{'x-grid3-row-first':$index==0, 'x-grid3-row-last':($index == (gridOptions.rowData.length - 1))}" style="width:100%;"> 
+                            <div ng-repeat="row in gridOptions.rowData | eventTypeFilter: gridOptions.filterService | orderBy: sortCol" class="x-grid3-row severity-major" ng-class="{'x-grid3-row-first':$index==0, 'x-grid3-row-last':($index == (gridOptions.rowData.length - 1))}" style="width:100%;"> 
                                 <table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:100%;">
                                     <tbody>
                                         <tr>
@@ -178,6 +178,7 @@
         </div>
 <!-- END OF BODY AREA =============================================================================== -->
 <!-- START OF BOTTOM BAR =============================================================================== -->
+<!-- This is not visible and left here in case the functionality to include the footer bar to the table is done in the future. -->
         <div class="x-panel-bbar" id="" style="width: 100%;">
             <div id="" class="x-toolbar x-small-editor x-toolbar-layout-ct" style="height: 15px; width: 100%;">
                 <table cellspacing="0" class="x-toolbar-ct">

@@ -1,10 +1,18 @@
 <div class="container-fluid">
 	<div class="row">
-		Some filtering controls go here
+		<div class="col-md-10 col-md-offset-1">
+			<div my-filterlist filter-data="filterCheckboxes"></div>
+		</div>
 	</div>
+
+	<div>
+		<p>Add controls here to filter based on area, route, severity, etc.</p>
+	</div>
+
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<div my-grid grid-options="gridOptions"></div>
+			<div id="gridData" style="width:400px; height:400px; margin:0 auto;" ng-show="!gridOptions.rowData"></div>
+			<div my-grid grid-options="gridOptions" ng-show="gridOptions.rowData"></div>
 		</div>
 	</div>
 </div>

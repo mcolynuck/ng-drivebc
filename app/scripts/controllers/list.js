@@ -4,13 +4,13 @@
 function setIconByType(evType){
   if(evType){
     var imgFile = "";
-    if(evType.toLowerCase() == 'incident'){
+    if(evType.toLowerCase() === 'incident'){
       imgFile = "images/incident.png";
-    } else if (evType.toLowerCase() == 'future planned'){
+    } else if (evType.toLowerCase() === 'future planned'){
       imgFile = "images/blue-cone.png";
-    } else if (evType.toLowerCase() == 'current planned'){
+    } else if (evType.toLowerCase() === 'current planned'){
       imgFile = "images/red-cone.png";
-    } else if (evType.toLowerCase() == 'road condition'){
+    } else if (evType.toLowerCase() === 'road condition'){
       imgFile = "images/road.png";
     } else {
       return evType;
@@ -21,6 +21,18 @@ function setIconByType(evType){
   }
 }
 
+
+// Parse date string from event date and create local-specific string.
+function localeDateFromString(dateStr) {
+  if(dateStr && dateStr.trim().length > 0) {
+    var parts = dateStr.split(' '),
+        calParts = parts[0].split('-'),
+        timeParts = parts[1].split(':');
+    return new Date(calParts[0], calParts[1], calParts[2], timeParts[0], timeParts[1], timeParts[2]).toLocaleString();
+  } else {
+    return " ";
+  }
+}
 
 // Formats basic json array to include property names
 function formatEventJson(data){
@@ -36,7 +48,7 @@ function formatEventJson(data){
       direction:        data[i][5],
       eventType:        data[i][6],
       severity:         data[i][7],
-      lastUpdated:      '' + new Date(data[i][8]).toLocaleString(),
+      lastUpdated:      localeDateFromString(data[i][8]),
       description:      data[i][9],
       ateid:            data[i][10],
       trafficPattern:   data[i][11],
@@ -52,6 +64,16 @@ function prepEventData(data){
   return formatEventJson(data);
 }
 
+// In progress animation during data load
+function run_inProgress(){
+  $('#gridData').waitMe({
+      effect: "bounce",
+      text: 'Loading event data...',
+      bg: 'rgba(255,255,255,0)',
+      color: '#000'
+  });
+}
+
 
 
 /**
@@ -62,30 +84,56 @@ function prepEventData(data){
  * Controller of the drivebcApp
  */
 angular.module('drivebcApp')
-  .controller('ListCtrl', ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
+  .controller('ListCtrl', ['$scope', '$http', '$sce', 'gridFilter', function ($scope, $http, $sce, gridFilter) {
+
+    run_inProgress();   // Start progress indicator
+
+
+    // Called when checkbox clicked to set filterData array.
+    $scope.selEvFilt = function (data) {
+      $scope.gridOptions.filterData = data;
+    };
+
+
 
     $http.get('data/events.json').
       success(function(data) { 
          var eventData = prepEventData(data);
-         $scope.gridOptions.rowData = eventData;       
-//         $scope.gridOptions.api.onNewRows();
+        $scope.gridOptions.rowData = eventData;
+        $('#gridData').waitMe('hide');      // Hide progress indicator
     }).
     error(function(){
+      $('#gridData').waitMe('hide');        // Hide progress indicator
       console.error("Error loading event json data. ", arguments);
     });
 
+
     var columnDefs = [
-// Could add min/max width, sort & sort comparitor, hide, etc.
-        {label: "Type",         field: "eventType",   width: "5%", isMultiline: false, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}},
-        {label: "Severity",     field: "severity",    width: "10%", isMultiline: false},
-        {label: "Route",        field: "road",        width: "12%", isMultiline: false},
-        {label: "Description",  field: "description", width: "58%", isMultiline: true},
-        {label: "Last Updated", field: "lastUpdated", width: "15%", isMultiline: false}
+// Could add min/max width, sort comparitor function, hide, etc.
+        {label: "Type",         field: "eventType",   width: "7%",  isMultiline: false, sort: true, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}, filterBy: $scope.eventTypeFilters},
+        {label: "Severity",     field: "severity",    width: "7%",  isMultiline: false, sort: true},
+        {label: "Route",        field: "road",        width: "13%", isMultiline: false, sort: true},
+        {label: "Description",  field: "description", width: "58%", isMultiline: true,  sort: true},
+        {label: "Last Updated", field: "lastUpdated", width: "15%", isMultiline: false, sort: true}
     ];
 
     $scope.gridOptions = {
         columnDefs: columnDefs,
-        rowData: null
+        rowData: null,     // Retreived in http.get call from external source
+        filterService: gridFilter
     };
 
-  }]);
+
+    var filterDefs = [
+      { id:"road condition",  model: "", trueVal: "true", falseVal: "false", image: 'images/road.png',      label: "Road Condition"},
+      { id:"incident",        model: "", trueVal: "true", falseVal: "false", image: 'images/incident.png',  label: "Incident"},
+      { id:"current planned", model: "", trueVal: "true", falseVal: "false", image: 'images/red-cone.png',  label: "Currrent Planned Event"},
+      { id:"future planned",  model: "", trueVal: "true", falseVal: "false", image: 'images/blue-cone.png', label: "Future Planned Event"}
+    ];
+
+    $scope.filterCheckboxes = {
+        filterDefs: filterDefs,
+        filterService: gridFilter
+    }
+  }])
+;
