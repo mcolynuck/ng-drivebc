@@ -22,6 +22,7 @@ angular.module('gridServices', [])
           filters[filterName].splice(i, 1);
         }
       }
+console.log("filter",filters);
     }
 
     this.getFilterArrayByName = function(filterName) {

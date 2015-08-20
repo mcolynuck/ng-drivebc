@@ -87,6 +87,7 @@ angular.module('grid_directives', [])
 	// Where-as the grid above is agnostic about the data, this filter is specific about column names, etc. so cannot be re-used as-is, as is the filter service.
 	.filter('gridFilter', function () {	// Custom filter for array input with property 'age'.  Default age is 18
 		return function (data, filterService) {
+//console.log("gridFilter",filterService.getAllFilters());
 			var resultArray = filterData("eventType", filterService.getFilterArrayByName('eventType'), data);
 
 			// if(filterService.hasSubFilters()){

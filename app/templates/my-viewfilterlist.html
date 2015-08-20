@@ -10,26 +10,18 @@
 	</li>
 </ul>
 
-<div>
-	<div ng-repeat="item in radioFilterData.area.selectedOption" class="one-line" ng-show="radioFilterData.model == 'area'">
-		<div ng-hide="$index > 0 && radioFilterData.area.selectedOption[$index-1].name == ''">
-			<label>Select Area: 
-				<select 
-			 		ng-options="option.name for option in radioFilterData.area.availableOptions track by option.name"
-					ng-model="radioFilterData.area.selectedOption[$index]">
-				</select> 
-				<input type="button" value="Delete" ng-click="deleteSelect($index)">
-			</label>
+<panel id="select-panel">
+	<div ng-repeat="selectList in radioFilterData.selectList">
+		<div ng-repeat="selected in selectList.options.selected" class="one-line" ng-show="radioFilterData.model == selectList.name">
+			<div ng-hide="$index > 0 && selectList.options.selected[$index-1].name == ''">
+				<label>{{ selectList.prompt }} 
+					<select 
+				 		ng-options="option.name for option in selectList.options.available track by option.name"
+						ng-model="selectList.options.selected[$index]">
+					</select> 
+					<input type="button" value="Delete" ng-click="deleteSelect(selectList.name, $index)" ng-hide="selectList.options.selected[$index].name == ''">
+				</label>
+			</div>
 		</div>
 	</div>
-
-<!-- 
-		<label> Select Area:
-			<select 
-		 		ng-options="option.name for option in radioFilterData.area.availableOptions track by option.name"
-				ng-model="radioFilterData.area.selectedOption[0]">
-			</select> 
-		</label>
- -->		
-	</div>
-</div>
+</panel>

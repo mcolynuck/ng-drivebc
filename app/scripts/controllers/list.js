@@ -216,35 +216,42 @@ angular.module('drivebcApp')
     ];
 
     // Select dropdown options (max 4 selects)
-    $scope.areaSelect = {
-      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],    //This sets the default value of the select in the ui
-      availableOptions: $scope.areaJson
+    var areaSelect = {
+      selected: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],    //This sets the default value of the select in the ui
+      available: $scope.areaJson
     };
 
-    $scope.routeSelect = {
-      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
-      availableOptions: $scope.routeJson
+    var routeSelect = {
+      selected: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      available: $scope.routeJson
     };
 
-    $scope.popularSelect = {
-      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
-      availableOptions: $scope.popularJson
+    var popularSelect = {
+      selected: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      available: $scope.popularJson
     };
 
-    $scope.ferrySelect = {
-      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
-      availableOptions: $scope.ferryJson
+    var ferrySelect = {
+      selected: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      available: $scope.ferryJson
     };
 
+    var selects = [
+      {name: "area",    options: areaSelect,    prompt: "Select Area:"},
+      {name: "route",   options: routeSelect,   prompt: "Select Route:"},
+      {name: "popular", options: popularSelect, prompt: "Select Popular Route:"},
+      {name: "ferry",   options: ferrySelect,   prompt: "Select Inland Ferry:"}
+    ];
 
     $scope.filterRadioButtons = {
       filterDefs: filterRadioDefs,
       model: $scope.radioBtn,
       filterService: gridFilter,
-      area: $scope.areaSelect,
-      route: $scope.routeSelect,
-      popular: $scope.popularSelect,
-      ferry: $scope.ferrySelect
+      // area: $scope.areaSelect,
+      // route: $scope.routeSelect,
+      // popular: $scope.popularSelect,
+      // ferry: $scope.ferrySelect
+      selectList: selects
     };
 
     // Start getting data ----------------------------
@@ -261,10 +268,14 @@ angular.module('drivebcApp')
       $scope.gridOptions.rowData = $scope.eventJson;
 
       // Update select option lists.
-      $scope.areaSelect.availableOptions = $scope.areaJson;
-      $scope.routeSelect.availableOptions = $scope.routeJson;
-      $scope.popularSelect.availableOptions = $scope.popularJson;
-      $scope.ferrySelect.availableOptions = $scope.ferryJson;
+      areaSelect.available = $scope.areaJson;
+      routeSelect.available = $scope.routeJson;
+      popularSelect.available = $scope.popularJson;
+      ferrySelect.available = $scope.ferryJson;
+      // $scope.areaSelect.availableOptions = $scope.areaJson;
+      // $scope.routeSelect.availableOptions = $scope.routeJson;
+      // $scope.popularSelect.availableOptions = $scope.popularJson;
+      // $scope.ferrySelect.availableOptions = $scope.ferryJson;
 
     });
 
