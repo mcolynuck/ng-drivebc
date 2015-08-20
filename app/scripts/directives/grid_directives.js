@@ -1,5 +1,27 @@
 'use strict';
 
+// Filter data array based on column and values.
+// @colField - Name of column to filter against
+// @fitlerArray - Array of values to match against.
+// @data - Array of data to be filtered.
+// Returns an array of mathing records
+function filterData(colField, filterArray, data) {
+  	// If we have data and something to filter with
+	if (data && filterArray.length > 0){
+		var retArray = [];
+
+		for(var i=0; i < data.length; i++){
+			if(filterArray.indexOf(data[i][colField].toLowerCase()) >= 0){
+				retArray.push(data[i]);
+			}
+		}
+		return retArray;				
+	}
+	return data;	// Nothing to be filtered
+}
+
+
+
 /**
  * @ngdoc function
  * @name drivebcApp.module:map_directives
@@ -9,7 +31,7 @@
  */
 angular.module('grid_directives', [])
 
-	.directive('myGrid', function() {
+	.directive('myGrid', function() {		// Data table grid
 	    return {
 	        restrict: 'A',
 	        templateUrl: "templates/my-grid.html",
@@ -61,30 +83,18 @@ angular.module('grid_directives', [])
 	    };
   	})
 
-	.filter('eventTypeFilter', function () {	// Custom filter for array input with property 'age'.  Default age is 18
+
+	// Where-as the grid above is agnostic about the data, this filter is specific about column names, etc. so cannot be re-used as-is, as is the filter service.
+	.filter('gridFilter', function () {	// Custom filter for array input with property 'age'.  Default age is 18
 		return function (data, filterService) {
-	      	// Create array of selected items to filter with
-	      	var selectedTypes = [],
-	      		filterData = filterService.getFilterArray();
+			var resultArray = filterData("eventType", filterService.getFilterArrayByName('eventType'), data);
 
-	      	for (var x in filterData) {
-	      		if(filterData[x].length > 0) {
-	          		selectedTypes.push(filterData[x]);
-	      		}
-	      	}
+			// if(filterService.hasSubFilters()){
+			// 	resultArray = filterData("severity", filterService.getFilterArrayByName('severity'), resultArray);	
+			// 	resultArray = filterData("road", filterService.getFilterArrayByName('road'), resultArray);	
+			// }
 
-	      	// If we have data and something to filter with
-			if (data && selectedTypes.length > 0){
-				var retArray = [];
-
-				for(var i=0; i < data.length; i++){
-					if(selectedTypes.indexOf(data[i].eventType.toLowerCase()) >= 0){
-						retArray.push(data[i]);
-					}
-				}
-				return retArray;				
-			}
-			return data;	// Nothing to be filtered
+			return resultArray;			
 		};
 	})
 ;

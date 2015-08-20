@@ -1,0 +1,362 @@
+[
+  {
+    "name": "Alaska Highway (#97) - Dawson Creek to Yukon Border",
+    "segments": [
+      {
+        "hwy": "H97_N",
+        "start": 1212783,
+        "end": 2168822
+      },
+      {
+        "hwy": "H97_S",
+        "start": 0,
+        "end": 956038
+      }
+    ]
+  },
+  {
+    "name": "Cariboo (#97) - Prince George to Cache Creek",
+    "segments": [
+      {
+        "hwy": "H97_N",
+        "start": 367222,
+        "end": 814144
+      },
+      {
+        "hwy": "H97_S",
+        "start": 1354677,
+        "end": 1801600
+      }
+    ]
+  },
+  {
+    "name": "Cassiar (#37) - Kitwanga to Yukon Border",
+    "segments": [
+      {
+        "hwy": "H37_N",
+        "start": 148486,
+        "end": 872197
+      },
+      {
+        "hwy": "H37_S",
+        "start": 0,
+        "end": 723712
+      }
+    ]
+  },
+  {
+    "name": "Coquihalla (#5) - Hope to Kamloops",
+    "segments": [
+      {
+        "hwy": "H5_N",
+        "start": 692,
+        "end": 197363
+      },
+      {
+        "hwy": "H5_S",
+        "start": 339261,
+        "end": 535932
+      }
+    ]
+  },
+  {
+    "name": "Crowsnest (#3) - Creston to Alberta",
+    "segments": [
+      {
+        "hwy": "H3_E",
+        "start": 588649,
+        "end": 839486
+      },
+      {
+        "hwy": "H3_W",
+        "start": 0,
+        "end": 250837
+      }
+    ]
+  },
+  {
+    "name": "Crowsnest (#3) - Hope to Osoyoos",
+    "segments": [
+      {
+        "hwy": "H3_E",
+        "start": 2508,
+        "end": 249686
+      },
+      {
+        "hwy": "H3_W",
+        "start": 589800,
+        "end": 835016
+      }
+    ]
+  },
+  {
+    "name": "Crowsnest (#3) - Osoyoos to Creston",
+    "segments": [
+      {
+        "hwy": "H3_E",
+        "start": 249686,
+        "end": 588649
+      },
+      {
+        "hwy": "H3_W",
+        "start": 250837,
+        "end": 589800
+      }
+    ]
+  },
+  {
+    "name": "Fraser Canyon (#1) - Hope to Cache Creek",
+    "segments": [
+      {
+        "hwy": "H1_E",
+        "start": 174432,
+        "end": 364051
+      },
+      {
+        "hwy": "H1_W",
+        "start": 516164,
+        "end": 705804
+      }
+    ]
+  },
+  {
+    "name": "Highway 4 - Parksville to Tofino",
+    "segments": [
+      {
+        "hwy": "H4_E",
+        "start": 560,
+        "end": 159010
+      },
+      {
+        "hwy": "H4_W",
+        "start": 2686,
+        "end": 161455
+      }
+    ]
+  },
+  {
+    "name": "Highway 95 - Cranbrook to Radium",
+    "segments": [
+      {
+        "hwy": "H95_N",
+        "start": 88816,
+        "end": 223730
+      },
+      {
+        "hwy": "H95_S",
+        "start": 104958,
+        "end": 239872
+      }
+    ]
+  },
+  {
+    "name": "Highway 95 - Radium to Golden",
+    "segments": [
+      {
+        "hwy": "H95_N",
+        "start": 223730,
+        "end": 328689
+      },
+      {
+        "hwy": "H95_S",
+        "start": 0,
+        "end": 104958
+      }
+    ]
+  },
+  {
+    "name": "Inland Island Highway (#19) - Parksville to Campbell River",
+    "segments": [
+      {
+        "hwy": "H19_N",
+        "start": 39225,
+        "end": 167027
+      },
+      {
+        "hwy": "H19_S",
+        "start": 235631,
+        "end": 363433
+      }
+    ]
+  },
+  {
+    "name": "John Hart (#97) - Prince George to Dawson Creek",
+    "segments": [
+      {
+        "hwy": "H97_N",
+        "start": 814144,
+        "end": 1212783
+      },
+      {
+        "hwy": "H97_S",
+        "start": 956038,
+        "end": 1354677
+      }
+    ]
+  },
+  {
+    "name": "Kitimat (#37) - Terrace to Kitimat",
+    "segments": [
+      {
+        "hwy": "H37_N",
+        "start": 0,
+        "end": 57621
+      },
+      {
+        "hwy": "H37_S",
+        "start": 814577,
+        "end": 872198
+      }
+    ]
+  },
+  {
+    "name": "Kootenay National Park (#93) - Radium to Alberta Border",
+    "segments": [
+      {
+        "hwy": "H93_N",
+        "start": 225550,
+        "end": 322956
+      },
+      {
+        "hwy": "H93_S",
+        "start": 0,
+        "end": 97406
+      }
+    ]
+  },
+  {
+    "name": "Malahat (#1) - Victoria to Mill Bay",
+    "segments": [
+      {
+        "hwy": "H1_N",
+        "start": 0,
+        "end": 38168
+      },
+      {
+        "hwy": "H1_S",
+        "start": 76875,
+        "end": 115000
+      }
+    ]
+  },
+  {
+    "name": "Okanagan (#97) - Osoyoos to Vernon",
+    "segments": [
+      {
+        "hwy": "H97_N",
+        "start": 3453,
+        "end": 179377
+      },
+      {
+        "hwy": "H97_S",
+        "start": 1989444,
+        "end": 2165368
+      }
+    ]
+  },
+  {
+    "name": "Okanagan Connector (#97C) - Merritt to Peachland",
+    "segments": [
+      {
+        "hwy": "H97C_E",
+        "start": 92083,
+        "end": 219063
+      },
+      {
+        "hwy": "H97C_W",
+        "start": 267,
+        "end": 127247
+      }
+    ]
+  },
+  {
+    "name": "Sunshine Coast (#101) - Powell River to Gibsons",
+    "segments": [
+      {
+        "hwy": "H101_E",
+        "start": 26732,
+        "end": 146674
+      },
+      {
+        "hwy": "H101_W",
+        "start": 4662,
+        "end": 124604
+      }
+    ]
+  },
+  {
+    "name": "Trans Canada (#1) - Victoria to Nanaimo",
+    "segments": [
+      {
+        "hwy": "H1_N",
+        "start": 0,
+        "end": 0
+      },
+      {
+        "hwy": "H1_S",
+        "start": 0,
+        "end": 0
+      }
+    ]
+  },
+  {
+    "name": "Trans Canada (#1) - Kamloops to Alberta Border",
+    "segments": [
+      {
+        "hwy": "H1_E",
+        "start": 435485,
+        "end": 876029
+      },
+      {
+        "hwy": "H1_W",
+        "start": 0,
+        "end": 440545
+      }
+    ]
+  },
+  {
+    "name": "Yellowhead (#16) - Prince George to Alberta Border",
+    "segments": [
+      {
+        "hwy": "H16_E",
+        "start": 722843,
+        "end": 1071365
+      },
+      {
+        "hwy": "H16_W",
+        "start": 0,
+        "end": 348522
+      }
+    ]
+  },
+  {
+    "name": "Yellowhead (#16) - Prince Rupert to Prince George",
+    "segments": [
+      {
+        "hwy": "H16_E",
+        "start": 12505,
+        "end": 722843
+      },
+      {
+        "hwy": "H16_W",
+        "start": 348522,
+        "end": 1058860
+      }
+    ]
+  },
+  {
+    "name": "Yellowhead (#5) - Kamloops to Tete Jaune Cache",
+    "segments": [
+      {
+        "hwy": "H5_N",
+        "start": 197617,
+        "end": 535486
+      },
+      {
+        "hwy": "H5_S",
+        "start": 1138,
+        "end": 339261
+      }
+    ]
+  }
+]

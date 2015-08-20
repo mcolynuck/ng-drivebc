@@ -3,8 +3,9 @@ $lightrow-colour : darken(white, 2)
 $darkrow-colour : darken($lightrow-colour, 8)
 
 .one-line
-	> li
+	> li, label, select, input
 		display: inline-block
+		margin: 0 0 3px 0
 		&:nth-last-child(n+2)
 			margin-right: 30px
 

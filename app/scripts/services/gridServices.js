@@ -2,28 +2,47 @@
 
 // Service to manage the filter state between the grid directive and the checkbox filter directive.
 angular.module('gridServices', [])
-  .service('gridFilter', function() {
-    var filterArray = [];
 
-    // Set content of filter array
-    // value - Filter value to add/remove
-    // isAdded - true to add value, false to remove value from array.
-    this.updateFilter = function(value, isAdded) {
-      if(isAdded){
-        if(filterArray.indexOf(value) < 0) {
-          filterArray.push(value);
+  .service('gridFilter', function() {
+    // var filterArray = [];
+    var filters = {};
+
+    this.updateFilterByName = function(filterName, id, isAdding) {
+      if(!filters[filterName]) {
+        filters[filterName] = [];
+      }
+
+      if(isAdding) {
+        if(filters[filterName].indexOf(id) < 0) {
+          filters[filterName].push(id);
         }
       } else {
         var i = 0;
-        if((i = filterArray.indexOf(value)) != -1) {
-          filterArray.splice(i, 1);
-        }        
+        if((i = filters[filterName].indexOf(id)) >= 0) {
+          filters[filterName].splice(i, 1);
+        }
       }
-    };
+    }
 
-    // Get array of filters
-    this.getFilterArray = function() {
-      return filterArray;
-    };
+    this.getFilterArrayByName = function(filterName) {
+      if(filterName && filters[filterName]) {
+        return filters[filterName];
+      }
+      return [];
+    }
+
+    this.getAllFilters = function() {
+      return filters;
+    }
   })
 ;
+
+/*
+
+  filters {
+    eventType: [],      // <= list of event types to match with
+    road: [],           // <= list of roads to match with
+    severity: []        // <= 'Major' (or nothing) to match with
+  }
+
+*/

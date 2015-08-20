@@ -64,6 +64,28 @@ function prepEventData(data){
   return formatEventJson(data);
 }
 
+
+// Convert array data to object with property names.
+function formatFerryJson(data){
+  var obj = [];
+
+  for (var i = 0; i < data.length; i++) {
+    obj.push({
+      name:       data[i][0],
+      latitude:   data[i][1],
+      longitude:  data[i][2],
+      link:       data[i][3]
+    });
+  }
+  return obj;
+}
+
+// Perform any data minuplation after formatting the json data
+function prepFerryData(data){
+  return formatFerryJson(data);
+}
+
+
 // In progress animation during data load
 function run_inProgress(){
   $('#gridData').waitMe({
@@ -75,6 +97,66 @@ function run_inProgress(){
 }
 
 
+// Load external data for the grid and filtering options.
+function loadExternalData(scope, http, defer){
+    // POPULAR ROUTES
+    http.get('data/popularroutes.json').
+      success(function(data) { 
+        scope.popularJson = data;   // {name: "", segments: [{hwy: "", start: 123, end: 123}]}
+    }).
+    error(function(msg){
+      $('#gridData').waitMe('hide');        // Hide progress indicator
+      alert("Error loading popular route json data.\n" + msg);
+    });
+
+
+    // INLAND FERRIES
+    http.get('data/ferries.json').
+      success(function(data) { 
+         var objArray = prepFerryData(data);
+         scope.ferryJson = objArray;  // {name: "", longitude: "", latitude: "", link: ""}
+    }).
+    error(function(msg){
+      $('#gridData').waitMe('hide');        // Hide progress indicator
+      alert("Error loading inland ferry json data.\n" + msg);
+    });
+
+
+    // ROUTES
+    http.get('data/highways.json').
+      success(function(data) { 
+        scope.routeJson = data;   // {name: "", road1: "", road2: ""}
+    }).
+    error(function(msg){
+      $('#gridData').waitMe('hide');        // Hide progress indicator
+      alert("Error loading event json data.\n" + msg);
+    });
+
+
+    // AREAS
+    http.get('data/areas.json').
+      success(function(data) { 
+        scope.areaJson = data;   // {name: "value"}
+    }).
+    error(function(msg){
+      $('#gridData').waitMe('hide');        // Hide progress indicator
+      alert("Error loading area json data.\n" + msg);
+    });
+
+
+    // EVENT DATA
+    // Largest file so use it to hide the progress indicator when done or error.
+    http.get('data/events.json').
+      success(function(data) { 
+         var eventData = prepEventData(data);
+        scope.eventJson = eventData;
+        defer.resolve();    // Resolve promise
+    }).
+    error(function(){
+      alert("Error loading event json data.\n" + arguments);
+      defer.resolve();    // Resolve promise
+    });  
+}
 
 /**
  * @ngdoc function
@@ -84,30 +166,12 @@ function run_inProgress(){
  * Controller of the drivebcApp
  */
 angular.module('drivebcApp')
-  .controller('ListCtrl', ['$scope', '$http', '$sce', 'gridFilter', function ($scope, $http, $sce, gridFilter) {
+  .controller('ListCtrl', ['$scope', '$http', '$sce', '$q', 'gridFilter', function ($scope, $http, $sce, $q, gridFilter) {
 
-    run_inProgress();   // Start progress indicator
-
-
-    // Called when checkbox clicked to set filterData array.
-    $scope.selEvFilt = function (data) {
-      $scope.gridOptions.filterData = data;
-    };
+    run_inProgress();   // Start progress gif indicator
 
 
-
-    $http.get('data/events.json').
-      success(function(data) { 
-         var eventData = prepEventData(data);
-        $scope.gridOptions.rowData = eventData;
-        $('#gridData').waitMe('hide');      // Hide progress indicator
-    }).
-    error(function(){
-      $('#gridData').waitMe('hide');        // Hide progress indicator
-      console.error("Error loading event json data. ", arguments);
-    });
-
-
+    // Table content configuration -----------------------
     var columnDefs = [
 // Could add min/max width, sort comparitor function, hide, etc.
         {label: "Type",         field: "eventType",   width: "7%",  isMultiline: false, sort: true, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));}, filterBy: $scope.eventTypeFilters},
@@ -124,16 +188,85 @@ angular.module('drivebcApp')
     };
 
 
-    var filterDefs = [
-      { id:"road condition",  model: "", trueVal: "true", falseVal: "false", image: 'images/road.png',      label: "Road Condition"},
-      { id:"incident",        model: "", trueVal: "true", falseVal: "false", image: 'images/incident.png',  label: "Incident"},
-      { id:"current planned", model: "", trueVal: "true", falseVal: "false", image: 'images/red-cone.png',  label: "Currrent Planned Event"},
-      { id:"future planned",  model: "", trueVal: "true", falseVal: "false", image: 'images/blue-cone.png', label: "Future Planned Event"}
+    // Checkbox filtering configuration ---------------------
+    $scope.checkboxVals = {"road condition": false, "incident": false, "current planned": false, "future planned": false};
+    var filterCheckboxDefs = [
+      { id:"road condition",  model: $scope.checkboxVals["road condition"],  trueVal: "true", falseVal: "false", image: 'images/road.png',      label: "Road Condition"},
+      { id:"incident",        model: $scope.checkboxVals["incident"],        trueVal: "true", falseVal: "false", image: 'images/incident.png',  label: "Incident"},
+      { id:"current planned", model: $scope.checkboxVals["current planned"], trueVal: "true", falseVal: "false", image: 'images/red-cone.png',  label: "Currrent Planned Event"},
+      { id:"future planned",  model: $scope.checkboxVals["future planned"],  trueVal: "true", falseVal: "false", image: 'images/blue-cone.png', label: "Future Planned Event"}
     ];
 
     $scope.filterCheckboxes = {
-        filterDefs: filterDefs,
-        filterService: gridFilter
-    }
+      filterDefs: filterCheckboxDefs,
+      filterService: gridFilter
+    };
+
+    
+    // Radio button filtering configuration -------------------
+    $scope.radioBtn = "";   // Value of selected radio button.
+    $scope.selections = {area: [], route: [], popular: [], ferry: []};    // Array of selections from lists.
+    var filterRadioDefs = [
+      { id:"all",       value: "",         field: "",         label: "All" },
+      { id:"severity",  value: "severity", field: "severity", label: "Major Events",     selection: "major" },
+      { id:"area",      value: "area",     field: "road",     label: "By Area",          selection: $scope.areaJson,    selection_model: $scope.selections.area },
+      { id:"route",     value: "route",    field: "road",     label: "By Route",         selection: $scope.routeJson,   selection_model: $scope.selections.route },
+      { id:"popular",   value: "popular",  field: "road",     label: "By Popular Route", selection: $scope.popularJson, selection_model: $scope.selections.popular },
+      { id:"ferry",     value: "ferry",    field: "road",     label: "By Inland Ferry",  selection: $scope.ferryJson,   selection_model: $scope.selections.ferry }
+    ];
+
+    // Select dropdown options (max 4 selects)
+    $scope.areaSelect = {
+      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],    //This sets the default value of the select in the ui
+      availableOptions: $scope.areaJson
+    };
+
+    $scope.routeSelect = {
+      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      availableOptions: $scope.routeJson
+    };
+
+    $scope.popularSelect = {
+      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      availableOptions: $scope.popularJson
+    };
+
+    $scope.ferrySelect = {
+      selectedOption: [{name: ""}, {name: ""}, {name: ""}, {name: ""}],
+      availableOptions: $scope.ferryJson
+    };
+
+
+    $scope.filterRadioButtons = {
+      filterDefs: filterRadioDefs,
+      model: $scope.radioBtn,
+      filterService: gridFilter,
+      area: $scope.areaSelect,
+      route: $scope.routeSelect,
+      popular: $scope.popularSelect,
+      ferry: $scope.ferrySelect
+    };
+
+    // Start getting data ----------------------------
+    var defer = $q.defer();
+
+    // Data will be assigned to specific scoped variables when loaded.
+    loadExternalData($scope, $http, defer);
+
+    // These things need data to exist before being created
+    defer.promise.then(function(){
+      $('#gridData').waitMe('hide');      // Hide progress indicator
+
+      // Update grid data
+      $scope.gridOptions.rowData = $scope.eventJson;
+
+      // Update select option lists.
+      $scope.areaSelect.availableOptions = $scope.areaJson;
+      $scope.routeSelect.availableOptions = $scope.routeJson;
+      $scope.popularSelect.availableOptions = $scope.popularJson;
+      $scope.ferrySelect.availableOptions = $scope.ferryJson;
+
+    });
+
   }])
 ;

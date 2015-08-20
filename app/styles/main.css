@@ -404,9 +404,10 @@ body, html {
     margin-top: -17px; }
 
 /* List styling */
-.one-line > li {
-  display: inline-block; }
-  .one-line > li:nth-last-child(n+2) {
+.one-line > li, .one-line label, .one-line select, .one-line input {
+  display: inline-block;
+  margin: 0 0 3px 0; }
+  .one-line > li:nth-last-child(n+2), .one-line label:nth-last-child(n+2), .one-line select:nth-last-child(n+2), .one-line input:nth-last-child(n+2) {
     margin-right: 30px; }
 
 table {

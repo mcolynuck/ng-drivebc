@@ -1,0 +1,86 @@
+[
+  [
+    "Barnston Island Ferry",
+    49.192179,
+    -122.724764,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#barnisle"
+  ],
+  [
+    "Arrow Park Ferry",
+    50.107269,
+    -117.901702,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#park"
+  ],
+  [
+    "Glade Ferry",
+    49.395235,
+    -117.544515,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#glade"
+  ],
+  [
+    "Harrop Ferry",
+    49.609427,
+    -117.054046,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#harrop"
+  ],
+  [
+    "Kootenay Lake Ferry",
+    49.650064,
+    -116.914731,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#kootenay"
+  ],
+  [
+    "Needles Ferry",
+    49.873062,
+    -118.090326,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#needles"
+  ],
+  [
+    "Upper Arrow Lake Ferry",
+    50.629026,
+    -117.898946,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#upperarrow"
+  ],
+  [
+    "Lytton Ferry",
+    50.247279,
+    -121.591984,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#lytton"
+  ],
+  [
+    "Adams Lake Ferry",
+    50.946544,
+    -119.658135,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#adams"
+  ],
+  [
+    "Little Fort Ferry",
+    51.421906,
+    -120.200441,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#lilfort"
+  ],
+  [
+    "McLure Ferry",
+    51.041194,
+    -120.241292,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#mclure"
+  ],
+  [
+    "Big Bar Ferry",
+    51.183202,
+    -122.133299,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#bbar"
+  ],
+  [
+    "Francois Lake Ferry",
+    54.039431,
+    -125.764356,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#francois"
+  ],
+  [
+    "Usk Ferry",
+    54.635412,
+    -128.409878,
+    "http://www.th.gov.bc.ca/marine/ferry_schedules.htm#usk"
+  ]
+]

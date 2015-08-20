@@ -1,0 +1,35 @@
+<!-- 2nd row of filtering and select dropdowns -->
+<h4>View:</h4>
+<ul class="one-line">
+<!-- second row of filtering and select boxes should go in here -->		
+	<li ng-repeat="item in radioFilterData.filterDefs">
+		<label>
+			<input type="radio" name="radioBtnFilter" ng-model="radioFilterData.model" ng-value="item.value" ng-click="updateViewFilter(item.field, item.value)"/>
+			{{ item.label }}
+		</label>
+	</li>
+</ul>
+
+<div>
+	<div ng-repeat="item in radioFilterData.area.selectedOption" class="one-line" ng-show="radioFilterData.model == 'area'">
+		<div ng-hide="$index > 0 && radioFilterData.area.selectedOption[$index-1].name == ''">
+			<label>Select Area: 
+				<select 
+			 		ng-options="option.name for option in radioFilterData.area.availableOptions track by option.name"
+					ng-model="radioFilterData.area.selectedOption[$index]">
+				</select> 
+				<input type="button" value="Delete" ng-click="deleteSelect($index)">
+			</label>
+		</div>
+	</div>
+
+<!-- 
+		<label> Select Area:
+			<select 
+		 		ng-options="option.name for option in radioFilterData.area.availableOptions track by option.name"
+				ng-model="radioFilterData.area.selectedOption[0]">
+			</select> 
+		</label>
+ -->		
+	</div>
+</div>

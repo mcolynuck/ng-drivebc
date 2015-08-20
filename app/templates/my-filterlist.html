@@ -1,7 +1,8 @@
+<h4>Select Event Type:</h4>
 <ul class="one-line">
 	<li ng-repeat="item in filterData.filterDefs">
 		<label>
-			<input type="checkbox" ng-model="item.model" ng-true-value="{{ item.trueVal }}" ng-false-value="{{ item.falseVal }}" ng-click="updateFilter(item.id,item.model)")" >
+			<input type="checkbox" ng-model="item.model" ng-true-value="{{ item.trueVal }}" ng-false-value="{{ item.falseVal }}" ng-click="updateEventTypeFilter(item.id,item.model)" >
 			<img ng-src="{{item.image}}"/>
 			{{ item.label }}
 		</label>

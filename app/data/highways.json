@@ -1,0 +1,502 @@
+[
+  {
+    "name": "Adams Lake Ferry",
+    "road1": "ADAMSLAKEFERRY_N",
+    "road2": "ADAMSLAKEFERRY_S"
+  },
+  {
+    "name": "Arrow Park Ferry",
+    "road1": "ARROWPARKFERRY_E",
+    "road2": "ARROWPARKFERRY_W"
+  },
+  {
+    "name": "Atlin Highway",
+    "road1": "ATLINHWY_N",
+    "road2": "ATLINHWY_S"
+  },
+  {
+    "name": "Barnston Island Ferry",
+    "road1": "BARNSTONISLANDFERRY_N",
+    "road2": "BARNSTONISLANDFERRY_S"
+  },
+  {
+    "name": "Big Bar Ferry",
+    "road1": "BIGBARFERRY_E",
+    "road2": "BIGBARFERRY_W"
+  },
+  {
+    "name": "Coalmont Road",
+    "road1": "COALMONTRD_N",
+    "road2": "COALMONTRD_S"
+  },
+  {
+    "name": "Francois Lake Ferry",
+    "road1": "FRANCOISLAKEFERRY_N",
+    "road2": "FRANCOISLAKEFERRY_S"
+  },
+  {
+    "name": "Glade Ferry",
+    "road1": "GLADEFERRY_E",
+    "road2": "GLADEFERRY_W"
+  },
+  {
+    "name": "Harrop Ferry",
+    "road1": "HARROPFERRY_N",
+    "road2": "HARROPFERRY_S"
+  },
+  {
+    "name": "Head Bay Road",
+    "road1": "HEADBAYRD_E",
+    "road2": "HEADBAYRD_W"
+  },
+  {
+    "name": "Hemlock Valley Road",
+    "road1": "HEMLOCKVALLEYRD_N",
+    "road2": "HEMLOCKVALLEYRD_S"
+  },
+  {
+    "name": "Highway 1",
+    "road1": "H1_E",
+    "road2": "H1_W"
+  },
+  {
+    "name": "Highway 1 on Vancouver Island",
+    "road1": "H1_N",
+    "road2": "H1_S"
+  },
+  {
+    "name": "Highway 1A",
+    "road1": "H1AP3_E",
+    "road2": "H1AP3_W"
+  },
+  {
+    "name": "Highway 1A on Vancouver Island",
+    "road1": "H1AP2_N",
+    "road2": "H1AP2_S"
+  },
+  {
+    "name": "Highway 2",
+    "road1": "H2_N",
+    "road2": "H2_S"
+  },
+  {
+    "name": "Highway 3",
+    "road1": "H3_E",
+    "road2": "H3_W"
+  },
+  {
+    "name": "Highway 3A between Castlegar and Creston",
+    "road1": "H3AP2_E",
+    "road2": "H3AP2_W"
+  },
+  {
+    "name": "Highway 3A between Keremeos and Highway 97 Junction",
+    "road1": "H3AP1_E",
+    "road2": "H3AP1_W"
+  },
+  {
+    "name": "Highway 3B",
+    "road1": "H3B_E",
+    "road2": "H3B_W"
+  },
+  {
+    "name": "Highway 4",
+    "road1": "H4_E",
+    "road2": "H4_W"
+  },
+  {
+    "name": "Highway 4A",
+    "road1": "H4A_E",
+    "road2": "H4A_W"
+  },
+  {
+    "name": "Highway 5",
+    "road1": "H5_N",
+    "road2": "H5_S"
+  },
+  {
+    "name": "Highway 5A",
+    "road1": "H5A_N",
+    "road2": "H5A_S"
+  },
+  {
+    "name": "Highway 6EW",
+    "road1": "H6_E",
+    "road2": "H6_W"
+  },
+  {
+    "name": "Highway 6NS",
+    "road1": "H6_N",
+    "road2": "H6_S"
+  },
+  {
+    "name": "Highway 7",
+    "road1": "H7_E",
+    "road2": "H7_W"
+  },
+  {
+    "name": "Highway 7B",
+    "road1": "H7B_E",
+    "road2": "H7B_W"
+  },
+  {
+    "name": "Highway 8",
+    "road1": "H8_N",
+    "road2": "H8_S"
+  },
+  {
+    "name": "Highway 9",
+    "road1": "H9_N",
+    "road2": "H9_S"
+  },
+  {
+    "name": "Highway 10",
+    "road1": "H10_E",
+    "road2": "H10_W"
+  },
+  {
+    "name": "Highway 11",
+    "road1": "H11_N",
+    "road2": "H11_S"
+  },
+  {
+    "name": "Highway 12",
+    "road1": "H12_N",
+    "road2": "H12_S"
+  },
+  {
+    "name": "Highway 13",
+    "road1": "H13_N",
+    "road2": "H13_S"
+  },
+  {
+    "name": "Highway 14",
+    "road1": "H14_E",
+    "road2": "H14_W"
+  },
+  {
+    "name": "Highway 15",
+    "road1": "H15_N",
+    "road2": "H15_S"
+  },
+  {
+    "name": "Highway 16",
+    "road1": "H16_E",
+    "road2": "H16_W"
+  },
+  {
+    "name": "Highway 16 on Haida Gwaii",
+    "road1": "H16_N",
+    "road2": "H16_S"
+  },
+  {
+    "name": "Highway 17",
+    "road1": "H17_N",
+    "road2": "H17_S"
+  },
+  {
+    "name": "Highway 18",
+    "road1": "H18_E",
+    "road2": "H18_W"
+  },
+  {
+    "name": "Highway 19",
+    "road1": "H19_N",
+    "road2": "H19_S"
+  },
+  {
+    "name": "Highway 19A between Highway 1 and Nanaimo",
+    "road1": "H19AP1_N",
+    "road2": "H19AP1_S"
+  },
+  {
+    "name": "Highway 19A between Parksville and Campbell River",
+    "road1": "H19AP2_N",
+    "road2": "H19AP2_S"
+  },
+  {
+    "name": "Highway 20",
+    "road1": "H20_E",
+    "road2": "H20_W"
+  },
+  {
+    "name": "Highway 21",
+    "road1": "H21_N",
+    "road2": "H21_S"
+  },
+  {
+    "name": "Highway 22",
+    "road1": "H22_N",
+    "road2": "H22_S"
+  },
+  {
+    "name": "Highway 22A",
+    "road1": "H22A_N",
+    "road2": "H22A_S"
+  },
+  {
+    "name": "Highway 23",
+    "road1": "H23_N",
+    "road2": "H23_S"
+  },
+  {
+    "name": "Highway 24",
+    "road1": "H24_E",
+    "road2": "H24_W"
+  },
+  {
+    "name": "Highway 26",
+    "road1": "H26_E",
+    "road2": "H26_W"
+  },
+  {
+    "name": "Highway 27",
+    "road1": "H27_N",
+    "road2": "H27_S"
+  },
+  {
+    "name": "Highway 28",
+    "road1": "H28_E",
+    "road2": "H28_W"
+  },
+  {
+    "name": "Highway 29",
+    "road1": "H29_N",
+    "road2": "H29_S"
+  },
+  {
+    "name": "Highway 30",
+    "road1": "H30_N",
+    "road2": "H30_S"
+  },
+  {
+    "name": "Highway 31",
+    "road1": "H31_N",
+    "road2": "H31_S"
+  },
+  {
+    "name": "Highway 31A",
+    "road1": "H31A_E",
+    "road2": "H31A_W"
+  },
+  {
+    "name": "Highway 33",
+    "road1": "H33_N",
+    "road2": "H33_S"
+  },
+  {
+    "name": "Highway 35",
+    "road1": "H35_N",
+    "road2": "H35_S"
+  },
+  {
+    "name": "Highway 37",
+    "road1": "H37_N",
+    "road2": "H37_S"
+  },
+  {
+    "name": "Highway 37A",
+    "road1": "H37A_E",
+    "road2": "H37A_W"
+  },
+  {
+    "name": "Highway 39",
+    "road1": "H39_N",
+    "road2": "H39_S"
+  },
+  {
+    "name": "Highway 40",
+    "road1": "H40_E",
+    "road2": "H40_W"
+  },
+  {
+    "name": "Highway 41",
+    "road1": "H41_N",
+    "road2": "H41_S"
+  },
+  {
+    "name": "Highway 43",
+    "road1": "H43_N",
+    "road2": "H43_S"
+  },
+  {
+    "name": "Highway 49",
+    "road1": "H49_E",
+    "road2": "H49_W"
+  },
+  {
+    "name": "Highway 51",
+    "road1": "H51_E",
+    "road2": "H51_W"
+  },
+  {
+    "name": "Highway 52",
+    "road1": "H52_N",
+    "road2": "H52_S"
+  },
+  {
+    "name": "Highway 52E",
+    "road1": "H52E_E",
+    "road2": "H52E_W"
+  },
+  {
+    "name": "Highway 59",
+    "road1": "H59_E",
+    "road2": "H59_W"
+  },
+  {
+    "name": "Highway 77",
+    "road1": "H77_N",
+    "road2": "H77_S"
+  },
+  {
+    "name": "Highway 91",
+    "road1": "H91_N",
+    "road2": "H91_S"
+  },
+  {
+    "name": "Highway 91A",
+    "road1": "H91A_N",
+    "road2": "H91A_S"
+  },
+  {
+    "name": "Highway 93",
+    "road1": "H93_N",
+    "road2": "H93_S"
+  },
+  {
+    "name": "Highway 95",
+    "road1": "H95_N",
+    "road2": "H95_S"
+  },
+  {
+    "name": "Highway 95A",
+    "road1": "H95A_N",
+    "road2": "H95A_S"
+  },
+  {
+    "name": "Highway 97",
+    "road1": "H97_N",
+    "road2": "H97_S"
+  },
+  {
+    "name": "Highway 97A",
+    "road1": "H97A_N",
+    "road2": "H97A_S"
+  },
+  {
+    "name": "Highway 97B",
+    "road1": "H97B_N",
+    "road2": "H97B_S"
+  },
+  {
+    "name": "Highway 97C",
+    "road1": "H97C_E",
+    "road2": "H97C_W"
+  },
+  {
+    "name": "Highway 97D",
+    "road1": "H97D_E",
+    "road2": "H97D_W"
+  },
+  {
+    "name": "Highway 99",
+    "road1": "H99_N",
+    "road2": "H99_S"
+  },
+  {
+    "name": "Highway 101",
+    "road1": "H101_E",
+    "road2": "H101_W"
+  },
+  {
+    "name": "Highway 103",
+    "road1": "H103_E",
+    "road2": "H103_W"
+  },
+  {
+    "name": "Highway 118",
+    "road1": "H118_N",
+    "road2": "H118_S"
+  },
+  {
+    "name": "Highway 395",
+    "road1": "H395_N",
+    "road2": "H395_S"
+  },
+  {
+    "name": "Horsefly Road",
+    "road1": "HORSEFLYRD_E",
+    "road2": "HORSEFLYRD_W"
+  },
+  {
+    "name": "Kootenay Lake Ferry",
+    "road1": "KOOTENAYLAKEFERRY_E",
+    "road2": "KOOTENAYLAKEFERRY_W"
+  },
+  {
+    "name": "Likely Road",
+    "road1": "LIKELYRD_N",
+    "road2": "LIKELYRD_S"
+  },
+  {
+    "name": "Little Fort Ferry",
+    "road1": "LITTLEFORTFERRY_E",
+    "road2": "LITTLEFORTFERRY_W"
+  },
+  {
+    "name": "Lytton Ferry",
+    "road1": "LYTTONFERRY_E",
+    "road2": "LYTTONFERRY_W"
+  },
+  {
+    "name": "McLure Ferry",
+    "road1": "MCCLUREFERRY_E",
+    "road2": "MCCLUREFERRY_W"
+  },
+  {
+    "name": "Morris Valley Road",
+    "road1": "MORRISVALLEYRD_N",
+    "road2": "MORRISVALLEYRD_S"
+  },
+  {
+    "name": "Mount Washington Road",
+    "road1": "MTWASHINGTONRD_E",
+    "road2": "MTWASHINGTONRD_W"
+  },
+  {
+    "name": "Needles Ferry",
+    "road1": "NEEDLESFERRY_E",
+    "road2": "NEEDLESFERRY_W"
+  },
+  {
+    "name": "Nisga'a Highway",
+    "road1": "H26N_N",
+    "road2": "H26N_S"
+  },
+  {
+    "name": "Port Mellon Highway",
+    "road1": "PORTMELLONHWY_N",
+    "road2": "PORTMELLONHWY_S"
+  },
+  {
+    "name": "Queen Charlotte City - Skidegate Road",
+    "road1": "QCCSKIDEGATERD_E",
+    "road2": "QCCSKIDEGATERD_W"
+  },
+  {
+    "name": "Upper Arrow Lake Ferry",
+    "road1": "UPPERARROWLAKEFERRY_N",
+    "road2": "UPPERARROWLAKEFERRY_S"
+  },
+  {
+    "name": "Usk Ferry",
+    "road1": "USKFERRY_E",
+    "road2": "USKFERRY_W"
+  },
+  {
+    "name": "Westside Road",
+    "road1": "WESTSIDERD_N",
+    "road2": "WESTSIDERD_S"
+  }
+]
