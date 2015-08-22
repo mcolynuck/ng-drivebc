@@ -1,26 +1,5 @@
 'use strict';
 
-// Filter data array based on column and values.
-// @colField - Name of column to filter against
-// @fitlerArray - Array of values to match against.
-// @data - Array of data to be filtered.
-// Returns an array of mathing records
-function filterData(colField, filterArray, data) {
-  	// If we have data and something to filter with
-	if (data && filterArray.length > 0){
-		var retArray = [];
-
-		for(var i=0; i < data.length; i++){
-			if(filterArray.indexOf(data[i][colField].toLowerCase()) >= 0){
-				retArray.push(data[i]);
-			}
-		}
-		return retArray;				
-	}
-	return data;	// Nothing to be filtered
-}
-
-
 
 /**
  * @ngdoc function
@@ -84,16 +63,48 @@ angular.module('grid_directives', [])
   	})
 
 
-	// Where-as the grid above is agnostic about the data, this filter is specific about column names, etc. so cannot be re-used as-is, as is the filter service.
-	.filter('gridFilter', function () {	// Custom filter for array input with property 'age'.  Default age is 18
+	.filter('gridFilter', function () {		// Custom filter
 		return function (data, filterService) {
-//console.log("gridFilter",filterService.getAllFilters());
-			var resultArray = filterData("eventType", filterService.getFilterArrayByName('eventType'), data);
 
-			// if(filterService.hasSubFilters()){
-			// 	resultArray = filterData("severity", filterService.getFilterArrayByName('severity'), resultArray);	
-			// 	resultArray = filterData("road", filterService.getFilterArrayByName('road'), resultArray);	
-			// }
+			if(data && data.length > 0){	// Any data to filter?
+
+				var resultArray = [],								// What we will return
+					filterObj = filterService.getFilterObject(),	// What we filter against
+					resultObj = {};									// Hash list to prevent duplicates from multliple filters matching a record
+
+				if(filterObj && Object.keys(filterObj).length > 0) {	// Anything to filter with?
+
+					for(var i=0; i < data.length; i++){			// Loop over data and compare with filter
+						for (var field in filterObj) {
+							try {
+								if(typeof data[i][field] === 'string') {
+									if(filterObj[field].indexOf(data[i][field].toLowerCase()) >= 0){		// Does column value match filter value?
+										resultObj[i] = data[i];
+									}
+								} else {	// Assume array
+									for(var item in data[i][field]) {
+										if(filterObj[field].indexOf(data[i][field][item].toLowerCase()) >= 0){		// Does column value match filter value?
+											resultObj[i] = data[i];
+										}										
+									}
+								}
+							} catch (err) {
+								console.log("data: ",data[i]);
+								console.error("field: ["+field+"]  loop: "+i+"  filterObj:",filterObj);
+								console.error(err);
+								return data;
+							}
+						}
+					}
+					for (var key in resultObj){				// Put hash list into array format for return.
+						resultArray.push(resultObj[key]);
+					}
+				} else {
+					resultArray = data;		// No filter or filter has no data to filter with yet.
+				}
+			} else {
+				resultArray = [];	// No data provided so return empty array.
+			}
 
 			return resultArray;			
 		};

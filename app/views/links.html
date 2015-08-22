@@ -1,3 +1,16 @@
 <div class="container">
-Links page
+	<div class="row link-row">
+		<div class="col-md-6 link-column" ng-repeat="data in links.data">
+			<dl class="link-group" ng-repeat="group in data">
+			   <dt class="link-group-name">{{ group.title }}</dt>
+			   <dd>
+			      <ul ng-repeat="link in group.links">
+			         <li class="link-group-item">
+			         	<a target="_blank" href="{{ link.href }}">{{ link.label }}</a>
+			         </li>
+			      </ul>
+			   </dd>
+			</dl>
+		</div>
+	</div>
 </div>

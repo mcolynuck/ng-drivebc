@@ -2,6 +2,7 @@ $nav-item-count: 6
 $pane-left-width: 100px
 $header-height: 80px
 $dbc-blue: #004B8D
+$dbc-lightblue: #9BBEDF
 
 .center-img
 	position: absolute
@@ -13,6 +14,13 @@ $dbc-blue: #004B8D
 	+animation-duration(2s)
 	+animation-delay(0s)
 	
+#psa_1
+	position: absolute
+	bottom: 150px
+	left: 300px
+	+animation-duration(1s)
+	+animation-delay(1s)
+
 
 body,html
 	height: 100%
@@ -67,7 +75,7 @@ body,html
 		z-index: 0
 		display: block
 		overflow-y: scroll
-		background-color: #9BBEDF
+		background-color: $dbc-lightblue
 
 	.line-top
 		border-top: 1px solid lightgrey

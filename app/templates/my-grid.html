@@ -1,3 +1,4 @@
+<span>Click on column header to apply sorting, click again to reverse order</span>
 <div id="listViewGrid" class=" x-panel  x-grid-with-col-lines x-grid-panel" style="width: 100%">
     <div class="x-panel-bwrap" id="">
 <!-- START OF TOP BAR =============================================================================== -->
@@ -119,7 +120,7 @@
                                 <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
                                     <thead>
                                         <tr class="x-grid3-hd-row">
-                                            <td ng-repeat="col in gridOptions.columnDefs" id="x-grid-td-{{ $index }}" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1), 'sort-asc': (curSortCol == col.field && isDescendingSort == false), 'sort-desc': (curSortCol == col.field && isDescendingSort == true)}" style="width:{{ col.width }};">
+                                            <td ng-repeat="col in gridOptions.columnDefs" id="x-grid-td-{{ $index }}" class="x-grid3-hd x-grid3-cell x-grid3-td-{{ $index }}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last':$index == (gridOptions.columnDefs.length - 1), 'sort-asc': (curSortCol == col.field && isDescendingSort == false), 'sort-desc': (curSortCol == col.field && isDescendingSort == true)}" style="width:{{ col.width }};"  ng-hide="col.isHidden">
                                                 <div ng-click="setSortBy(col.field)" class="x-grid3-hd-inner x-grid3-hd-{{ $index }}" unselectable="on" style="">
                                                     <a class="x-grid3-hd-btn" href="#" id=""></a>
                                                     {{ col.label }}
@@ -143,7 +144,7 @@
                                 <table class="x-grid3-row-table" border="0" cellspacing="0" cellpadding="0" style="width:100%;">
                                     <tbody>
                                         <tr>
-                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-col x-grid3-cell x-grid3-td-{{$index}}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last': $index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};" tabindex="0">
+                                            <td ng-repeat="col in gridOptions.columnDefs" class="x-grid3-col x-grid3-cell x-grid3-td-{{$index}}" ng-class="{'x-grid3-cell-first': $index == 0, 'x-grid3-cell-last': $index == (gridOptions.columnDefs.length - 1)}" style="width:{{ col.width }};"  ng-hide="col.isHidden" tabindex="0">
                                                 
                                                 <!-- not multiline and no cell renderer -->
                                                 <div ng-if="!col.isMultiline && !col.cellRenderer" class="x-grid3-cell-inner x-grid3-col-{{ $index }}" unselectable="on">{{ row[col.field] }}</div>

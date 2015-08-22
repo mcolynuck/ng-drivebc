@@ -3,11 +3,14 @@ $lightrow-colour : darken(white, 2)
 $darkrow-colour : darken($lightrow-colour, 8)
 
 .one-line
-	> li, label, select, input
+	> ul, li, label, select, input, span
 		display: inline-block
 		margin: 0 0 3px 0
-		&:nth-last-child(n+2)
-			margin-right: 30px
+	.one-block
+		margin-right: 30px
+
+.filter-ctrl
+	margin-left: 15px
 
 table
 	margin: 0
@@ -15,6 +18,25 @@ table
 		padding: 0.75em
 		&:nth-last-child(n+2)
 			border-right: 1px solid lightgray
+
+#filter-panel
+	margin-top: 10px
+	margin-bottom: 10px
+	padding: 10px 0
+	background-color: aliceblue
+
+	.filter-header
+		display: block
+		font-size: 16px
+		font-weight: bold
+		text-align: right
+		color: #4e4e4e
+		padding: 5px 0
+	ul
+		line-height: 2.5em
+	label
+		color: #4e4e4e
+
 
 .x-panel-tbar
 	display: none

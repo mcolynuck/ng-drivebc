@@ -1,19 +1,22 @@
 <div class="container-fluid">
+
+<div id="filter-panel" class="row col-md-10 col-md-offset-1">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div my-filterlist filter-data="filterCheckboxes"></div>
+		<div class="col-md-12">
+			<div class="filter-ctrl" my-filterlist filter-data="filterCheckboxes"></div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div my-view-filterlist radio-filter-data="filterRadioButtons"></div>
+		<div class="col-md-12">
+			<div class="filter-ctrl" my-view-filterlist radio-filter-data="filterRadioButtons"></div>
 		</div>
 	</div>
+</div>
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<div id="gridData" style="width:400px; height:400px; margin:0 auto;" ng-show="!gridOptions.rowData"></div>
+			<div id="gridData" style="height:400px;" ng-show="!gridOptions.rowData"></div>
 			<div my-grid grid-options="gridOptions" ng-show="gridOptions.rowData"></div>
 		</div>
 	</div>
