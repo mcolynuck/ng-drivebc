@@ -13,7 +13,6 @@ function prepLinkData(data) {
 					links: data[i]['item'][j].links
 				})
 			}
-
 			result[i] = inner;
 	  	}
 	}
@@ -25,7 +24,7 @@ function prepLinkData(data) {
 function loadData(http, defer) {
     http.get('data/links.json').
       success(function(data) {
-         var output = prepLinkData(data);
+        var output = prepLinkData(data);
         defer.resolve(output);    // Resolve promise
     }).
     error(function(){

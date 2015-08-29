@@ -508,4 +508,51 @@ table {
       .link-group .link-group-item > a:hover {
         color: blue; }
 
+.about-panel {
+  position: relative;
+  margin-top: 2em;
+  background-color: aliceblue;
+  padding: 10px;
+  font-size: 14px; }
+  .about-panel article {
+    padding: 0 10px;
+    margin-bottom: 2em; }
+  .about-panel .line-above:before {
+    display: block;
+    content: "";
+    border: 0 solid;
+    color: #DCA724;
+    height: 8px;
+    background-color: #DCA724;
+    width: 107%;
+    margin-left: -70px; }
+  .about-panel hr {
+    border: 0 solid;
+    color: #DCA724;
+    height: 10px;
+    background-color: #DCA724;
+    margin: 0;
+    padding: 0; }
+  .about-panel h1 {
+    margin: 10px 0;
+    font-size: 32px; }
+  .about-panel h2 {
+    margin-bottom: 10px;
+    font-size: 24px; }
+  .about-panel dt {
+    font-size: 18px;
+    font-weight: bold; }
+  .about-panel dd {
+    font-size: 14px;
+    padding-left: 5em; }
+    .about-panel dd:before {
+      content: "-"; }
+
+.about-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-left: -70px;
+  margin-top: -40px; }
+
 /*# sourceMappingURL=main.css.map */

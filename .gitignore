@@ -1,0 +1,9 @@
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components
+drivebc.sublime-project
+drivebc.sublime-workspace
+/app/styles/sass/0-plugins/bourbon
+/app/styles/sass/0-plugins/neat

@@ -1,0 +1,58 @@
+$default-font-size: 14px
+$sub-title-font-size: 18px
+
+.about-panel
+	position: relative
+	margin-top: 2em
+	background-color: aliceblue
+	padding: 10px
+	font-size: $default-font-size
+
+	article
+		padding: 0 10px
+		margin-bottom: 2em
+
+	.line-above
+		&:before
+			display: block
+			content: ""
+			border: 0 solid
+			color: #DCA724
+			height: 8px
+			background-color: #DCA724
+			width: 107%
+			margin-left: -70px
+
+	hr
+		border: 0 solid
+		color: #DCA724
+		height: 10px
+		background-color: #DCA724
+		margin: 0
+		padding: 0
+
+	h1
+		margin: 10px 0
+		font-size: 32px
+
+	h2
+		margin-bottom: 10px
+		font-size: 24px
+
+	dt
+		font-size: $sub-title-font-size
+		font-weight: bold
+
+	dd
+		font-weight default
+		font-size: $default-font-size
+		padding-left: 5em
+		&:before 
+			content: '-'
+
+.about-icon
+	position: absolute
+	width: 50px
+	height: 50px
+	margin-left: -70px
+	margin-top: -40px

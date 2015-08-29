@@ -1,3 +1,143 @@
 <div class="container">
-help page
+	<div class="row">
+		<panel class="col-md-10 col-md-offset-1 about-panel">
+			<hr>
+			<article>
+				<h1>About this website</h1>
+				<p>
+					This website was created to exapand my knowledge of AngularJS using a real-world example project.  I based the project on the DriveBC.ca website which I worked on previously. UX
+					and styling considerations were a small part of this experiment rather than a complete re-design of the DriveBC experience.  Functionality not directly involved in the AngularJS framework was skipped, such as displaying event data in on the Map page.
+				</p>
+
+				<p>
+					<dt>Angular elements used:</dt>
+					<dd>Routing</dd>
+					<dd>Controllers</dd>
+					<dd>Directives (element & attribute)</dd>
+					<dd>Views and template files</dd>
+					<dd>Filtering</dd>
+					<dd>Services</dd>
+					<dd>Deferring (promises)</dd>
+
+				</p>
+
+				<p>
+					<dt>Additional technologies involved in this project include:</dt>
+					<dd>Yoeman (scaffolding)</dd>
+					<dd>Bower</dd>
+					<dd>Grunt</dd>
+					<dd>Git</dd>
+					<dd>CSS / SASS (Including Bourbon.io and Bootstrap)</dd>
+					<dd>JSON</dd>
+					<dd>Google Maps API</dd>
+				</p>
+			</article>
+
+			<article>
+				<h2>Layout:</h2>
+				<p>					
+					The layout is a three pane design with the banner on top, a navigation button panel on the left and main content window on the right.  There are clickable elements on both
+					the banner (main logo and three icons on the right) and the navigation pane which drives the content area via the Angular url routing process.  Each of the navigation buttons are descirbed
+					below in more detail.
+				</p>
+				<p>
+					The icons on the banner (top-right) will open a new tab to the real DriveBC subscription, twitter or RSS sign-up pages.  Clicking on the DriveBC logo (top-left) will take you to this sites home page.
+				</p>
+				<p>
+					Clicking on the navigation pane (left) icons will change the url, appending a '#' symbol and a value.  This in turn triggers the Angular router to load associated content in the main content area (right).  If the router does not understand the value appended after the '#' symbol, it will load the main landing page content by default (a 404 error response).
+				</p>
+			</article>
+			
+			<article class="line-above">
+				<h2>Home page</h2>
+				<div class="about-icon">
+					<img src="../images/about-home-icon.png">
+				</div>
+				<p>
+					The home page is based on the DriveBC landing page with the main BC map logo and one of the public service announcement overlay clickable images.  The main image fades in and the PSA image slides/fades in from the left.  This is also the default page when the Angular router encounters a url that does not match one of its pre-defined paths instead of displaying a '404 - Page not found' error.
+				</p>
+				<p>
+					The PSA image is clickable and will take you to the live site outside of this website.
+				</p>
+			</article>
+
+			<article class="line-above">
+				<h2>Map page</h2>
+				<div class="about-icon">
+					<img src="../images/about-map-icon.png">
+				</div>
+				<p>
+					This page contains a Google map that is centered over the province of British Columbia, just like the live site.  Normally, this map would contain a number of clickable icons to related to traffic events, weather, signs, etc. but this was outside the scope of this Angular project particularly because it is straight JavaScript and would not incorporate any Angular components.
+				</p>
+				<p>
+					The goal of this page was to create a directive (attribute type) that loads the map element.
+				</p>
+			</article>
+
+			<article class="line-above">
+				<h2>List page</h2>
+				<div class="about-icon">
+					<img src="../images/about-list-icon.png">
+				</div>
+				<p>	
+					This page is the most Angular intensive on this site and took the longest to create. Once the data loads, you'll find two main sections with filtering options on top and the data grid below.
+				</p>
+				<p>
+					The filter panel has two rows of inputs. The top row has a series of checkboxes which filters records based on the event type (column with icons). The second row contains radio buttons with additional filtering using data in other columns. A number of these options cause a selection lists to appear just below so that a specific value may be selected.  Once you select from that list, another selection list will appear below that one and this continues to a maximum of 4 lists. You'll also notice that once a slection is made, a 'Delete' button will appear beside that list. This button clears that selection list and causes any selections below it to shift up to fill that gap and remove the last list item.
+				</p>
+				<p>
+					The checkbox row and the radio button / select list row are two separate directives and these items communicate with the grids custom Angular filter via an Angular Service which provides access to the choices made to the components that need that information rather than communicating with each other directly.
+				</p>
+				<p>
+					Each of these rows (and selection lists) directives are agnostic about the data being used such that the displayed labels and number of inputs is fully configured in the pages Angular controller using a JavaScript object. This object identifies the label to be displayed and the field name and value(s) it is tied to. The radio buttons are also configured to have the selection lists or not (as in the case of the 'Major' and 'All' radio buttons that do not have selection lists).
+				</p>
+				<p>
+					The grid is another data-agnostic custom directive which provides a number of special features, most of which are configured in the page controller via JavaScript objects. This object allows each column in each row to be uniquely configured for display.  The first column contains an icon and this is accomoplished by providing a html template in the configuration object that is populated at runtime with data. The Description column is configured to display its data in a multi-line block as opposed to a single line as would normally be the case. Each column can also be configured to allow it to be sorted via a click on the table column header (toggling the order with subsequent clicks). Each column also has configuration settings for its width, the field data it will display and the column heading label.
+				</p>
+				<p>
+					Data is loaded via Angular's $http service using a JavaScript promise which causes the screen to be updated once the data is read in and processed as required prior to display. It's during this delay that the 'in progress' animated gif is displayed then hidden.
+				</p>
+			</article>
+
+			<article class="line-above">
+				<h2>Webcams page</h2>
+				<div class="about-icon">
+					<img src="../images/about-webcams-icon.png">
+				</div>
+				<p>
+					This page mimics the DriveBC webcams page using an Anguar directive.  This webcam blocks are styled using CSS flex positioning which allows the number of items per row to change as the width of the browser changes.
+				</p>
+				<p>
+					The menu at the top of the content area is also sensitive to resizeing and will condense down to an icon which opens a dropdown menu when the width reaches the trigger point (responsive design). This menu also uses Anuglar filters to determine which webcams to display in the view.
+				</p>
+				<p>
+					Each webcam block is an Angular directive and the content is driven from the webcam JSON data file.  Although the file is static (not using the live DriveBC data), the images displayed are live (images are take at regular intervals).  Clicking on the webcam image will cause the live webpage to load for that webcam.
+				</p>
+				<p>
+					Some webcam images display a blue banner across the upper right corner with the word 'New!'.  These are added via CSS based on a flag in the JSON data file at runtime which is possible via Angulars 'ng-class' directive.
+				</p>
+			</article>
+
+			<article class="line-above">
+				<h2>Links page</h2>
+				<div class="about-icon">
+					<img src="../images/about-links-icon.png">
+				</div>
+				<p>
+					The contents mimic the links found on the DriveBC website, but this project uses a JSON data file to provide the information and an Angular directive instead of hard-coding them in the html file. The data identifies in which column a link group belongs, the group title and the link labels and underlying urls.
+				</p>
+			</article>
+
+			<article class="line-above">
+				<h2>About page</h2>
+				<div class="about-icon">
+					<img src="../images/about-about-icon.png">
+				</div>
+				<p>
+					This page, duh!
+				</p>
+			</article>
+			<hr/>
+		</panel>
+	</div>
 </div>
