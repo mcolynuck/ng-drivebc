@@ -1,6 +1,11 @@
 'use strict';
 
-// Formats basic json array to include property names
+/**
+ * @ngdoc function
+ * @name formatWebcamJson
+ * @description
+ * Formats basic json array to include property names for DriveBC webcam data.
+ */
 function formatWebcamJson(data){
 	var obj = [];
 
@@ -33,7 +38,12 @@ function formatWebcamJson(data){
 }
 
 
-// Appends image url and clickable link to json data
+/**
+ * @ngdoc function
+ * @name appendWebcamLinks
+ * @description
+ * Appends image url and clickable link to json data
+ */
 function appendWebcamLinks(jsonArray){
 	for (var i = 0; i < jsonArray.length; i++) {
 		jsonArray[i].imgurl = 'http://images.drivebc.ca/bchighwaycam/pub/cameras/' + jsonArray[i].id + '.jpg';
@@ -43,7 +53,12 @@ function appendWebcamLinks(jsonArray){
 }
 
 
-// Take json array data from DriveBC, format and add clickable links info
+/**
+ * @ngdoc function
+ * @name prepWebcamData
+ * @description
+ * Coordinates the process from raw json array data from DriveBC, calling other functions to generate a properly labeled json data file.
+ */
 function prepWebcamData(data){
 	return appendWebcamLinks(formatWebcamJson(data));
 }
@@ -51,13 +66,18 @@ function prepWebcamData(data){
 
 
 /**
- * @ngdoc function
- * @name drivebcApp.controller:WebcamsCtrl
- * @description
- * # WebcamsCtrl
- * Controller of the drivebcApp
+ * @ngdoc overview
+ * @name drivebcApp
+ * @description Module for webcam page
  */
 angular.module('drivebcApp')
+	/**
+	 * @ngdoc controller
+	 * @name drivebcApp.controller:WebcamsCtrl
+	 * @description
+	 * # WebcamsCtrl
+	 * Controller of the drivebcApp webcam page
+	 */
   .controller('WebcamsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
 	$scope.webcamData= [];
 	$scope.webcamRegion = { region: ($routeParams.hasOwnProperty('region') ? $routeParams.region : "Vancouver Island")};	// default to Van. Is.

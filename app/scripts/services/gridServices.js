@@ -1,10 +1,20 @@
 'use strict';
 
-/*
-    Service to manage the filter state between the grid and filter selectors.
- */
+/**
+ * @ngdoc overview
+ * @name drivebcApp.service:gridServices
+ * @description
+ * # grid_directives
+ * Service to manage the filter state between the grid and filter selectors.
+ */ 
 angular.module('gridServices', [])
-
+  /**
+   * @ngdoc service
+   * @name drivebcApp.service:gridServices:gridFilter
+   * @description
+   * # grid_directives
+   * Provides service to maintain filter options for use in filtering grid table on List page.
+   */
   .service('gridFilter', function() {
 
     var filterObject = {};    // Contains properties (grid field name) and array of values (lower-case versions)

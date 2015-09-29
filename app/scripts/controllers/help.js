@@ -1,12 +1,15 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name drivebcApp.controller:HelpCtrl
- * @description
- * # HelpCtrl
- * Controller of the drivebcApp
+ * @ngdoc overview
+ * @name drivebcApp
+ * @description Help page
  */
 angular.module('drivebcApp')
+	/**
+	 * @ngdoc controller
+	 * @name drivebcApp:HelpCtrl
+	 * @description Controller of the drivebcApp Help page.
+	 */
   .controller('HelpCtrl', function () {
   });

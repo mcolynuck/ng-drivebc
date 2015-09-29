@@ -5,11 +5,18 @@
  * @ngdoc function
  * @name drivebcApp.module:map_directives
  * @description
- * # map_directives
- * Directives for mapCtrl
+ * # grid_directives
+ * Directives for gridCtrl
  */
 angular.module('grid_directives', [])
 
+	/**
+	 * @ngdoc directive
+	 * @name drivebcApp.module:grid_directives:myGrid
+	 * @description
+	 * # grid_directives
+	 * Directives for grid data table on List page.
+	 */
 	.directive('myGrid', function() {		// Data table grid
 	    return {
 	        restrict: 'A',
@@ -17,6 +24,14 @@ angular.module('grid_directives', [])
 	        scope: {
 	        	gridOptions: "="
 	        },
+
+			/**
+			 * @ngdoc controller
+			 * @name drivebcApp.module:grid_directives
+			 * @description
+			 * # grid_directives
+			 * Controller for grid directive to handle column sorting.
+			 */	        
 	        controller: function($scope){
 	        	$scope.curSortCol = "";				// Column currently sorting by
 	        	$scope.isDescendingSort = false;	// Is column sorted in descending order?	        	
@@ -63,6 +78,13 @@ angular.module('grid_directives', [])
   	})
 
 
+	/**
+	 * @ngdoc filter
+	 * @name drivebcApp.module:grid_directives:gridFilter
+	 * @description
+	 * # grid_directives
+	 * Filters grid data based on selections on filter panel via filterService.
+	 */
 	.filter('gridFilter', function () {		// Custom filter
 		return function (data, filterService) {
 

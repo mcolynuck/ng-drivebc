@@ -1,6 +1,11 @@
 'use strict';
 
-// Parse the json into the expected format
+/**
+ * @ngdoc function
+ * @name prepLinkData
+ * @description
+ * Parse the json into the expected format.
+ */
 function prepLinkData(data) {
 	var result = [];
 	if (data) {
@@ -20,7 +25,12 @@ function prepLinkData(data) {
 }
 
 
-// Tasked with loading data from source and resolving promise with formatted data.
+/**
+ * @ngdoc function
+ * @name loadData
+ * @description
+ * Tasked with loading data from source and resolving promise with formatted data.
+ */
 function loadData(http, defer) {
     http.get('data/links.json').
       success(function(data) {
@@ -35,13 +45,19 @@ function loadData(http, defer) {
 
 
 /**
- * @ngdoc function
- * @name drivebcApp.controller:LinksCtrl
+ * @ngdoc overview
+ * @name drivebcApp
  * @description
- * # LinksCtrl
- * Controller of the drivebcApp
+ * Module for Links page
  */
 angular.module('drivebcApp')
+  /**
+   * @ngdoc controller
+   * @name drivebcApp.controller:LinksCtrl
+   * @description
+   * # LinksCtrl
+   * Controller of the drivebcApp
+   */
   .controller('LinksCtrl', ['$scope', '$http', '$q', function ($scope, $http, $q) {
   	var defer = $q.defer();
   	$scope.links = {};

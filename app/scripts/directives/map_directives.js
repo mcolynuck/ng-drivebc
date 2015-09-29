@@ -1,13 +1,19 @@
 'use strict';
 
 /**
- * @ngdoc function
+ * @ngdoc overview
  * @name drivebcApp.module:map_directives
- * @description
- * # map_directives
- * Directives for mapCtrl
+ * @description Module for Map page.
  */
 angular.module('map_directives', [])
+	/**
+	 * @ngdoc directive
+	 * @name drivebcApp.module:map_directives:mapCanvas
+	 * @restrict A
+	 * @description
+	 * # map_directives
+	 * Directive for mapCtrl for Google map centered over British Columbia.
+	 */
 	.directive('mapCanvas', function() {
 	    return {
 	        restrict: 'A',

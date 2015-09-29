@@ -2,7 +2,14 @@
 
 // Utility Functions =================================================
 
-// Create img html based on event string value (case insensitive)
+/**
+ * @ngdoc function
+ * @name setIconByType
+ * @description
+ * Create img html based on event string value (case insensitive) from event types:
+ * incident, future planned, current planned and road condition.
+ */
+
 function setIconByType(evType){
   if(evType){
     var imgFile = "";
@@ -24,7 +31,15 @@ function setIconByType(evType){
 }
 
 
-// Parse date string from event date and create local-specific string.
+/**
+ * @ngdoc function
+ * @name localeDateFromString
+ * @description
+ * Parse date string from event date and create local-specific string.
+ * #Example
+ * localeDateFromString ('2015-08-08 13:40:12.0')
+ */
+
 function localeDateFromString(dateStr) {
   if(dateStr && dateStr.trim().length > 0) {
     var parts = dateStr.split(' '),
@@ -37,7 +52,13 @@ function localeDateFromString(dateStr) {
 }
 
 
-// Formats basic json array to include property names
+/**
+ * @ngdoc function
+ * @name prepEventData
+ * @description
+ * Formats basic json array to include property names for DriveBC event data
+ */
+
 function prepEventData(data){
   var obj = [];
 
@@ -63,7 +84,13 @@ function prepEventData(data){
 
 
 
-// Convert array data to object with property names.
+/**
+ * @ngdoc function
+ * @name prepFerryData
+ * @description
+ * Convert array data to object with property names for DriveBC ferry data.
+ */
+
 function prepFerryData(data){
   var obj = [];
 
@@ -79,14 +106,26 @@ function prepFerryData(data){
 }
 
 
-// Starts the progress indicator animation.
+/**
+ * @ngdoc function
+ * @name run_inProgress
+ * @description
+ * Starts the progress indicator animation.
+ */
+
 function run_inProgress(){
   $('#gridData').waitMe({ effect: "bounce", text: 'Loading event data...', bg: 'rgba(255,255,255,0)', color: '#000' });
 }
 
 
-// Load external data for the grid and filtering options.
-// defer.process called at end of loading event data as it is the largest data file.
+/**
+ * @ngdoc function
+ * @name loadExternalData
+ * @description
+ * Load external data for the grid and filtering options.
+ * defer.process called at end of loading event data as it is the largest data file.
+ */
+
 function loadExternalData(scope, http, defer){
 
     // POPULAR ROUTES
@@ -152,13 +191,20 @@ function loadExternalData(scope, http, defer){
 
 
 /**
- * @ngdoc function
- * @name drivebcApp.controller:ListCtrl
+ * @ngdoc overview
+ * @name drivebcApp
  * @description
- * # ListCtrl
- * Controller of the drivebcApp
+ * Module for List page.
  */
 angular.module('drivebcApp')
+  /**
+   * @ngdoc controller
+   * @name drivebcApp.controller:ListCtrl
+   * @description
+   * # ListCtrl
+   * Controller of the drivebcApp List page.
+   * Defines radio & checkboxes and table configuration options used by various directives to generate the page.
+   */
   .controller('ListCtrl', ['$scope', '$http', '$sce', '$q', 'gridFilter', function ($scope, $http, $sce, $q, gridFilter) {
 
     run_inProgress();   // Start progress gif indicator
@@ -173,7 +219,7 @@ angular.module('drivebcApp')
     // isMultiline - Will column display wrapped text over one or more lines?
     // cellRenderer - Function that generates html to use in place of regular column data text.
     var columnDefs = [
-// Could add min/max width, sort comparitor function, filtering, etc.
+// Could add min/max width, sort comparator function, filtering, etc.
         { label: "Type",         field: "eventType",   width: "7%",  isMultiline: false, sort: true, cellRenderer: function(data){return $sce.trustAsHtml(setIconByType(data.eventType));} },
         { label: "Severity",     field: "severity",    width: "7%",  isMultiline: false, sort: true },
         { label: "Route",        field: "road",        width: "13%", isMultiline: false, sort: true },
@@ -203,7 +249,7 @@ angular.module('drivebcApp')
     var filterCheckboxDefs = [
       { id:"road condition",  model_prop: "road condition",  trueVal: "true", falseVal: "false", image: 'images/road.png',      label: "Road Condition"},
       { id:"incident",        model_prop: "incident",        trueVal: "true", falseVal: "false", image: 'images/incident.png',  label: "Incident"},
-      { id:"current planned", model_prop: "current planned", trueVal: "true", falseVal: "false", image: 'images/red-cone.png',  label: "Currrent Planned Event"},
+      { id:"current planned", model_prop: "current planned", trueVal: "true", falseVal: "false", image: 'images/red-cone.png',  label: "Current Planned Event"},
       { id:"future planned",  model_prop: "future planned",  trueVal: "true", falseVal: "false", image: 'images/blue-cone.png', label: "Future Planned Event"}
     ];
 

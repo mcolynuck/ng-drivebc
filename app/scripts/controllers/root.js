@@ -1,20 +1,22 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name drivebcApp.controller:RootCtrl
- * @description
- * # MainCtrl
- * Controller of the drivebcApp
+ * @ngdoc overview
+ * @name drivebcApp
+ * @description Module for Root level of website
  */
 angular.module('drivebcApp')
+  /**
+   * @ngdoc controller
+   * @name drivebcApp.controller:RootCtrl
+   * @description
+   * # MainCtrl
+   * Controller of the drivebcApp at the root level.
+   * Monitors route changes to update left-nav icons to relect the active page content.
+   * Handles click events on left-nave icons to drive content.
+   */
   .controller('RootCtrl', ['$scope', '$rootScope', '$location', function ($scope, $rootScope, $location) {
     $scope.isMouseover = false;
-
-    $scope.hover = function(){
-      console.log("hover");
-      
-    };
 
     $rootScope.$on( "$routeChangeStart", function(event, next) {
       if(next.controllerAs && next.controllerAs.length > 0){

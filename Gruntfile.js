@@ -41,6 +41,12 @@ module.exports = function (grunt) {
       }
     },    
 
+
+    ngdocs: {
+      all: ['<%= yeoman.app %>/scripts/**/*.js']
+    },
+
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       sass: {
@@ -428,6 +434,7 @@ module.exports = function (grunt) {
 
 
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-ngdocs');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -473,7 +480,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'ngdocs'
   ]);
 
   grunt.registerTask('default', [

@@ -6,7 +6,7 @@
  * @description
  * # drivebcApp
  *
- * Main module of the application.
+ * Main module of the application configuring required modules and routing configuration.
  */
 angular
   .module('drivebcApp', [

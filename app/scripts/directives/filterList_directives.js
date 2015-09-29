@@ -1,14 +1,20 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name drivebcApp.module:map_directives
- * @description
- * # map_directives
- * Directives for mapCtrl
+ * @ngdoc overview
+ * @name drivebcApp.module:grid_filter_directives
+ * @description Module for grid_filter_directives
  */
 angular.module('grid_filter_directives', [])
 
+	/**
+	 * @ngdoc directive
+	 * @name drivebcApp.module:grid_filter_directives:myFilterList
+	 * @restrict A
+	 * @description
+	 * # map_directives
+	 * Directives for checkboxes of event types on filter panel used to filter list table.
+	 */
 	.directive('myFilterlist', function() {			// Checkboxes for event types
 	    return {
 			restrict: 'A',
@@ -39,6 +45,14 @@ angular.module('grid_filter_directives', [])
 	    };
   	})
 
+	/**
+	 * @ngdoc directive
+	 * @name drivebcApp.module:grid_filter_directives:myViewFilterList
+	 * @restrict A
+	 * @description
+	 * # map_directives
+	 * Directives for radio buttons of event types on filter panel used to filter list table.
+	 */
 	.directive('myViewFilterlist', function() {			// Radio buttons like 'All', 'Area', 'Major'
 	    return {
 			restrict: 'A',
