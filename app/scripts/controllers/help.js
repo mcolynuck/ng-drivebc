@@ -8,7 +8,7 @@
 angular.module('drivebcApp')
 	/**
 	 * @ngdoc controller
-	 * @name drivebcApp:HelpCtrl
+	 * @name HelpCtrl
 	 * @description Controller of the drivebcApp Help page.
 	 */
   .controller('HelpCtrl', function () {

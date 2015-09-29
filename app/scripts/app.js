@@ -1,13 +1,15 @@
 'use strict';
 
 /**
- * @ngdoc overview
- * @name drivebcApp
- * @description
- * # drivebcApp
  *
- * Main module of the application configuring required modules and routing configuration.
- */
+ * @ngdoc object
+ * @name drivebcApp
+ * @requires ngRoute, map_directives, ngSanitize, grid_directives, grid_filter_directives, gridServices
+ * @description 
+ *
+ * Main module to configure routes and requirements.
+ *
+**/
 angular
   .module('drivebcApp', [
     // 'ngAnimate',
