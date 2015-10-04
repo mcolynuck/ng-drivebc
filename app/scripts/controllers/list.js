@@ -127,63 +127,84 @@ function run_inProgress(){
  */
 
 function loadExternalData(scope, http, defer){
+    var toResolve = 0;
+
+    // Called when requrest resolved.
+    function resolved(){
+      if(--toResolve === 0){  // Are we finished all the requests?
+        defer.resolve();    // Resolve promise
+      }
+    }
 
     // POPULAR ROUTES
+    toResolve++;
     http.get('data/popularroutes.json').
       success(function(data) { 
         scope.popularJson = data;   // {name: "", segments: [{hwy: "", start: 123, end: 123}]}
+        resolved();
     }).
     error(function(msg){
       $('#gridData').waitMe('hide');        // Hide progress indicator
       alert("Error loading popular route json data.\n" + msg);
+      defer.reject();    // Reject promise
     });
 
 
     // INLAND FERRIES (aka road in event data)
+    toResolve++;
     http.get('data/ferries.json').
       success(function(data) { 
          var objArray = prepFerryData(data);
          scope.ferryJson = objArray;  // {name: "", longitude: "", latitude: "", link: ""}
+        resolved();
     }).
     error(function(msg){
       $('#gridData').waitMe('hide');        // Hide progress indicator
       alert("Error loading inland ferry json data.\n" + msg);
+      defer.reject();    // Reject promise
     });
 
 
     // ROUTES (aka road in event data)
+    toResolve++;
     http.get('data/highways.json').
       success(function(data) { 
         scope.routeJson = data;   // {name: "", road1: "", road2: ""}
+        resolved();
     }).
     error(function(msg){
       $('#gridData').waitMe('hide');        // Hide progress indicator
       alert("Error loading event json data.\n" + msg);
+      defer.reject();    // Reject promise
     });
 
 
     // AREAS (aka district in event data)
+    toResolve++;
     http.get('data/areas.json').
       success(function(data) { 
         scope.areaJson = data;   // {name: "value"}
+        resolved();
     }).
     error(function(msg){
       $('#gridData').waitMe('hide');        // Hide progress indicator
       alert("Error loading area json data.\n" + msg);
+      defer.reject();    // Reject promise
     });
 
 
     // EVENT DATA
     // Largest file so use it to hide the progress indicator when done or error.
+    toResolve++;
     http.get('data/events.json').
       success(function(data) { 
          var eventData = prepEventData(data);
         scope.eventJson = eventData;
-        defer.resolve();    // Resolve promise
+        resolved();
     }).
     error(function(){
       alert("Error loading event json data.\n" + arguments);
-      defer.resolve();    // Resolve promise
+      defer.reject();    // Reject promise
     });  
 }
 
